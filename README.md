@@ -16,4 +16,8 @@ Just go to https://fuzue.github.io/seasonfood/ ans this will redirect you to the
 1. npm i
 2. npm run build
 
+# Data sources
+
+Source of data for fruits and vegetables from [Slow Food Italy Guide](https://www.slowfood.it/wp-content/uploads/blu_facebook_uploads/2014/09/ita_guida_consumo_b.pdf)
+
 
