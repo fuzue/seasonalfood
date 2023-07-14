@@ -8,7 +8,6 @@ import { useTranslation } from "react-i18next"
 
 export default function FoodOfTheMonth({food} : {food: FoodList}) {
   const { selectedMonthNum  } = useParams();
-  console.log(selectedMonthNum)
   const { t } = useTranslation()
   const monthNum = Number(selectedMonthNum) - 1
 
