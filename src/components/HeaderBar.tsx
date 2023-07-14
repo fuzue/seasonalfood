@@ -94,22 +94,39 @@ export default function HeaderBar(props: Props) {
   }));
 
   const navigate = useNavigate();
-  const loaction = useLocation();
+  const location = useLocation();
+
+  function leftButton() {
+    if(location.pathname.split("/")[1] === "foodpage") {
+      return (
+        <IconButton
+        size="large"
+        edge="start"
+        color="inherit"
+        aria-label="open drawer"
+        onClick={() => navigate(-1)}
+      >
+        <ArrowBackIosNew />
+      </IconButton>
+      )
+    }
+    return (
+      <IconButton
+        size="large"
+        edge="start"
+        color="inherit"
+        aria-label="open drawer"
+        onClick={props.toggleDrawer}
+      >
+        <MenuIcon />
+      </IconButton>
+    )
+  }
 
   return (
     <StyledAppBar position="static">
       <Toolbar>
-        {loaction.pathname.split("/")[1] === "foodpage" && (
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={() => navigate(-1)}
-          >
-            <ArrowBackIosNew />
-          </IconButton>
-        )}
+        {leftButton()}
         <Search>
           <SearchIconWrapper>
             <IconButton
@@ -131,16 +148,6 @@ export default function HeaderBar(props: Props) {
             />
           </form>
         </Search>
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="open drawer"
-          onClick={props.toggleDrawer}
-          sx={{ ml: 0.5 }}
-        >
-          <MenuIcon />
-        </IconButton>
       </Toolbar>
     </StyledAppBar>
   );
