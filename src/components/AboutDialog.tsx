@@ -11,9 +11,20 @@ export default function AboutDialog() {
       </DialogTitle>
       <DialogContent>
         <DialogContentText id="about-dialog-description">
-          <p>This is a project that was built on a genuine difficulty: to know when fruits and vegetables  are available in a new country or region. After looking for solutions, and information, everything was not intuitive, or did not do something I wanted.  </p>
+          <p>
+          This project was developed to address a genuine challenge:
+          determining the availability of fruits and vegetables in a new
+          country or region. Despite searching for solutions and information, I
+          couldn't find anything intuitive or capable of meeting my needs.
+          </p>
 
-          <p>The idea was to create it as a simple and scalable project, so it would be to change and add the database to another country, or region. This app's goal is to encourage the comsumption of local produce, empower small local farmers and, with that, reduce our impact in global warming.
+          <p>
+          The concept behind this project was to create a simple and scalable
+          solution, making it easy to modify and expand the database for
+          different countries or regions. The primary objective of this app is
+          to promote the consumption of locally grown produce, empower
+          small-scale farmers, and ultimately reduce our contribution to global
+          warming.
           </p>
         </DialogContentText>
       </DialogContent>

@@ -5,7 +5,7 @@ export default async function fetchData(setFunction: React.Dispatch<React.SetSta
   const { readRemoteFile } = usePapaParse();
 
   return readRemoteFile(
-    `${location.origin}${import.meta.env.BASE_URL}/${url}` ,{
+    import.meta.env.BASE_URL + url ,{
       download: true,
       header: true,
       complete: (result: any) => {
