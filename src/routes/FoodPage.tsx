@@ -98,7 +98,10 @@ export default function FoodPage({ food }: { food: FoodList }) {
   }
 
   return (
-
+    <Box
+      marginX={1}
+      justifyContent="space-between"
+      alignItems="center">
       <Box
         display='flex'
         justifyContent='center'
@@ -121,6 +124,7 @@ export default function FoodPage({ food }: { food: FoodList }) {
           </Typography>
           <Typography>{t(seasonStatus)}</Typography>
         </Box>
+      </Box>
 
       {/* BOTTOM GRID WITH MONTHS */}
       <Box
