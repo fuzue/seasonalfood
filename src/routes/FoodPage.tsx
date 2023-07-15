@@ -2,7 +2,7 @@ import type { FoodList } from "../types/food";
 import { currentMonth } from "../utils/utils";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect } from "react";
-import { Box, Typography, Grid, Stack } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 

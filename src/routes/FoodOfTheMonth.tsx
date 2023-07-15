@@ -1,5 +1,5 @@
 import type { FoodList, FoodCategory, FoodObject } from "../types/food";
-import { ChangeEvent, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   Box,
@@ -7,8 +7,6 @@ import {
   Tabs,
   styled,
   alpha,
-  Badge,
-  BadgeProps,
   Chip,
   Typography,
   Stack,
@@ -83,7 +81,7 @@ export default function FoodOfTheMonth({ food }: { food: FoodList }) {
       </Stack>
       <Tabs
         value={foodType}
-        onChange={(e, value) => handleChange(value)}
+        onChange={(_, value) => handleChange(value)}
         variant="fullWidth"
         sx={{ fontWeight: 700 }}
         aria-label="tabs for the selection of fruits, vegetables or others"
