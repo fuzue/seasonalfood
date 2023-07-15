@@ -1,28 +1,28 @@
 import type { FoodList, FoodCategory, FoodObject } from "../types/food";
 import { ChangeEvent, useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { Box, Tab, Tabs, styled, alpha } from "@mui/material";
+import { Box, Tab, Tabs, styled, alpha, Badge, BadgeProps, Chip, Typography, Stack } from "@mui/material";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 import RenderFoods from "../components/RenderFoods";
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
 
-export default function FoodOfTheMonth({food} : {food: FoodList}) {
-  const { selectedMonthNum  } = useParams();
-  const { t } = useTranslation()
-  const monthNum = Number(selectedMonthNum) - 1
+export default function FoodOfTheMonth({ food }: { food: FoodList }) {
+  const { selectedMonthNum } = useParams();
+  const { t } = useTranslation();
+  const monthNum = Number(selectedMonthNum) - 1;
 
   //month change arrows function
   const navigate = useNavigate();
   useEffect(() => {
-    if(monthNum < 0 || monthNum > 11) {
+    if (monthNum < 0 || monthNum > 11) {
       return navigate("/NotFound");
     }
-  })
+  });
 
   const monthFood = [] as FoodObject[];
-  food.forEach(item => {
-    if(item.season[monthNum] === true) monthFood.push(item);
-  })
+  food.forEach((item) => {
+    if (item.season[monthNum] === true) monthFood.push(item);
+  });
 
   //filters the fruits and vegetables
   const filterFoodType = (monthFood: FoodList, foodCategory: FoodCategory) =>
@@ -37,7 +37,7 @@ export default function FoodOfTheMonth({food} : {food: FoodList}) {
   //variables to handle the changing tabs
   const [foodType, setFoodType] = useState("Fruits" as FoodCategory);
   // @ts-ignore
-  const handleChange = (event: ChangeEvent<EventTarget>, newFoodCategory: FoodCategory) => {
+  const handleChange = (newFoodCategory: FoodCategory) => {
     setFoodType(newFoodCategory);
   };
 
@@ -68,46 +68,30 @@ export default function FoodOfTheMonth({food} : {food: FoodList}) {
     },
   }));
 
-  const ItemsBox = styled(Box)(({ theme }) => ({
-    borderRadius: theme.shape.borderRadius,
-    margin: "0",
-    display: "flex",
-  }));
   return (
     <Box>
-      <div className="month-container">
-        <div className="selected-month">
-          <ArrowButton to={`/month/${prevMonth + 1}`}>
-            <ArrowLeft />
-          </ArrowButton>
-          <div className="month-title">
-            <h4>{t(`month_${monthNum}`)}</h4>
-          </div>
-          <ArrowButton to={`/month/${nextMonth + 1}`}>
-            <ArrowRight />
-          </ArrowButton>
+      <Stack direction="row" justifyContent="space-between" sx={{mt: 2}}>
+        <ArrowButton to={`/month/${prevMonth + 1}`}>
+          <ArrowLeft />
+        </ArrowButton>
+        <div className="month-title">
+          <Typography variant="h6">{t(`month_${monthNum}`)}</Typography>
         </div>
-            <p className="food-counter-text">
-              {t('FoodOfTheMonth_fruitsNumber', { count: fruitsList.length, fruits: fruitsList.length})
-               + ' ' + t('FoodOfTheMonth_veggiesNumber', { count: veggiesList.length, veggies: veggiesList.length})}
-            </p>
-         
-        <div className="button-wrapper">
-          <Tabs
-            value={foodType}
-            onChange={(e, value) => handleChange(e, value)}
-            sx={{ fontWeight: 700 }}
-            aria-label="tabs for the selection of fruits, vegetables or others"
-          >
-            <Tab label={t('FoodOfTheMonth_fruitsTabText')} value="Fruits" />
-            <Tab label={t('FoodOfTheMonth_vegetablesTabText')} value="Veggies"  />
-          </Tabs>
-        </div>
-        <ItemsBox>{changeTab(foodType)}</ItemsBox>
-      </div>
-      
+        <ArrowButton to={`/month/${nextMonth + 1}`}>
+          <ArrowRight />
+        </ArrowButton>
+      </Stack>
+      <Tabs
+        value={foodType}
+        onChange={(e, value) => handleChange(value)}
+        variant="fullWidth"
+        sx={{ fontWeight: 700 }}
+        aria-label="tabs for the selection of fruits, vegetables or others"
+      >
+        <Tab label={<span><Chip label={fruitsList.length} sx={{mr: 1}} size="small" />{t("FoodOfTheMonth_fruitsTabText")}</span>} value="Fruits" />
+        <Tab label={<span><Chip label={veggiesList.length} sx={{mr: 1}} size="small" />{t("FoodOfTheMonth_vegetablesTabText")}</span>} value="Veggies" />
+      </Tabs>
+      {changeTab(foodType)}
     </Box>
   );
-  
 }
-

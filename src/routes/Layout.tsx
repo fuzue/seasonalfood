@@ -53,10 +53,7 @@ const theme = createTheme({
 function Layout({ food }: { food: FoodList }) {
   const MainBox = styled(Box)(() => ({
     width: "100%",
-    maxWidth: "450px",
     display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
     margin: "0 auto",
     paddingBottom: "1em",
     minHeight: "100%",
