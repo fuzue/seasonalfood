@@ -13,6 +13,7 @@ export default function FoodOfTheMonth() {
   const { selectedMonthNum  } = useParams();
   const { t } = useTranslation()
   const monthNum = Number(selectedMonthNum) - 1
+  const filteredFood:{[foodType:string]: FoodList} = {'Fruits': [], 'Veggies': []}
 
   //month change arrows function
   const navigate = useNavigate();
@@ -27,27 +28,21 @@ export default function FoodOfTheMonth() {
     if(item.season[monthNum] === true) monthFood.push(item);
   })
 
+
   //filters the fruits and vegetables
   const filterFoodType = (monthFood: FoodList, foodCategory: FoodCategory) =>
     monthFood.filter((item) => item.category === foodCategory);
-  const fruitsList = filterFoodType(monthFood, "Fruits");
-  const veggiesList = filterFoodType(monthFood, "Veggies");
+  filteredFood["Fruits"] = filterFoodType(monthFood, "Fruits");
+  filteredFood["Veggies"] = filterFoodType(monthFood, "Veggies");
+  const num_fruits = filteredFood["Fruits"].length
+  const num_veggies = filteredFood["Veggies"].length
 
   //variables to handle the changing tabs
   const [foodType, setFoodType] = useState("Fruits" as FoodCategory);
   // @ts-ignore
   const handleChange = (event: ChangeEvent<EventTarget>, newFoodCategory: FoodCategory) => {
     setFoodType(newFoodCategory);
-  };
 
-  //function to render the different types according to the tab
-  const changeTab = (foodType: FoodCategory) => {
-    switch (foodType) {
-      case "Fruits":
-        return <RenderFoods foodList={fruitsList}/>;
-      case "Veggies":
-        return <RenderFoods foodList={veggiesList}/>;
-    }
   };
 
   //variables to change month when pressing the arrows
@@ -87,8 +82,8 @@ export default function FoodOfTheMonth() {
           </ArrowButton>
         </div>
             <p className="food-counter-text">
-              {t('FoodOfTheMonth_fruitsNumber', { count: fruitsList.length, fruits: fruitsList.length})
-               + ' ' + t('FoodOfTheMonth_veggiesNumber', { count: veggiesList.length, veggies: veggiesList.length})}
+              {t('FoodOfTheMonth_fruitsNumber', { count: num_fruits, fruits: num_fruits})
+               + ' ' + t('FoodOfTheMonth_veggiesNumber', { count: num_veggies, veggies: num_veggies})}
             </p>
          
         <div className="button-wrapper">
@@ -102,7 +97,7 @@ export default function FoodOfTheMonth() {
             <Tab label={t('FoodOfTheMonth_vegetablesTabText')} value="Veggies"  />
           </Tabs>
         </div>
-        <ItemsBox>{changeTab(foodType)}</ItemsBox>
+        <ItemsBox><RenderFoods foodList={filteredFood[foodType]}/></ItemsBox>
       </div>
       
     </Box>
