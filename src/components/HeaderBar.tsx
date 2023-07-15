@@ -13,6 +13,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useTranslation } from "react-i18next";
 import { ArrowBackIosNew } from "@mui/icons-material";
 import Fuse from 'fuse.js'
+import { useRef, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom";
 
 type Props = {
