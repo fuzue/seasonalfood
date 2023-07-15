@@ -1,7 +1,18 @@
 import type { FoodList, FoodCategory, FoodObject } from "../types/food";
 import { ChangeEvent, useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { Box, Tab, Tabs, styled, alpha, Badge, BadgeProps, Chip, Typography, Stack } from "@mui/material";
+import {
+  Box,
+  Tab,
+  Tabs,
+  styled,
+  alpha,
+  Badge,
+  BadgeProps,
+  Chip,
+  Typography,
+  Stack,
+} from "@mui/material";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 import RenderFoods from "../components/RenderFoods";
 import { useTranslation } from "react-i18next";
@@ -10,6 +21,7 @@ export default function FoodOfTheMonth({ food }: { food: FoodList }) {
   const { selectedMonthNum } = useParams();
   const { t } = useTranslation();
   const monthNum = Number(selectedMonthNum) - 1;
+  const filteredFood:{[foodType:string]: FoodList} = {'Fruits': [], 'Veggies': []}
 
   //month change arrows function
   const navigate = useNavigate();
@@ -27,28 +39,16 @@ export default function FoodOfTheMonth({ food }: { food: FoodList }) {
   //filters the fruits and vegetables
   const filterFoodType = (monthFood: FoodList, foodCategory: FoodCategory) =>
     monthFood.filter((item) => item.category === foodCategory);
-  const fruitsList = filterFoodType(monthFood, "Fruits");
-  const veggiesList = filterFoodType(monthFood, "Veggies");
-
-  //renders the fruits, veggies and others
-  const RenderFruits = () => RenderFoods(fruitsList);
-  const RenderVeggies = () => RenderFoods(veggiesList);
+  filteredFood["Fruits"] = filterFoodType(monthFood, "Fruits");
+  filteredFood["Veggies"] = filterFoodType(monthFood, "Veggies");
+  const num_fruits = filteredFood["Fruits"].length;
+  const num_veggies = filteredFood["Veggies"].length;
 
   //variables to handle the changing tabs
   const [foodType, setFoodType] = useState("Fruits" as FoodCategory);
   // @ts-ignore
   const handleChange = (newFoodCategory: FoodCategory) => {
     setFoodType(newFoodCategory);
-  };
-
-  //function to render the different types according to the tab
-  const changeTab = (foodType: FoodCategory) => {
-    switch (foodType) {
-      case "Fruits":
-        return <RenderFruits />;
-      case "Veggies":
-        return <RenderVeggies />;
-    }
   };
 
   //variables to change month when pressing the arrows
@@ -70,7 +70,7 @@ export default function FoodOfTheMonth({ food }: { food: FoodList }) {
 
   return (
     <Box>
-      <Stack direction="row" justifyContent="space-between" sx={{mt: 2}}>
+      <Stack direction="row" justifyContent="space-between" sx={{ mt: 2 }}>
         <ArrowButton to={`/month/${prevMonth + 1}`}>
           <ArrowLeft />
         </ArrowButton>
@@ -88,10 +88,26 @@ export default function FoodOfTheMonth({ food }: { food: FoodList }) {
         sx={{ fontWeight: 700 }}
         aria-label="tabs for the selection of fruits, vegetables or others"
       >
-        <Tab label={<span><Chip label={fruitsList.length} sx={{mr: 1}} size="small" />{t("FoodOfTheMonth_fruitsTabText")}</span>} value="Fruits" />
-        <Tab label={<span><Chip label={veggiesList.length} sx={{mr: 1}} size="small" />{t("FoodOfTheMonth_vegetablesTabText")}</span>} value="Veggies" />
+        <Tab
+          label={
+            <span>
+              <Chip label={num_fruits} sx={{ mr: 1 }} size="small" />
+              {t("FoodOfTheMonth_fruitsTabText")}
+            </span>
+          }
+          value="Fruits"
+        />
+        <Tab
+          label={
+            <span>
+              <Chip label={num_veggies} sx={{ mr: 1 }} size="small" />
+              {t("FoodOfTheMonth_vegetablesTabText")}
+            </span>
+          }
+          value="Veggies"
+        />
       </Tabs>
-      {changeTab(foodType)}
+      <RenderFoods foodList={filteredFood[foodType]}/>
     </Box>
   );
 }

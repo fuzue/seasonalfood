@@ -38,16 +38,7 @@ const theme = createTheme({
       main: "#ff7664", //red
       dark: "#4071d8", //blue
     },
-  },
-  breakpoints: {
-    values: {
-      xs: 450,
-      sm: 600,
-      md: 900,
-      lg: 1200,
-      xl: 1536,
-    },
-  },
+  }
 });
 
 function Layout({ food }: { food: FoodList }) {
