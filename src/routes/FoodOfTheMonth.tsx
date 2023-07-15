@@ -21,7 +21,10 @@ export default function FoodOfTheMonth({ food }: { food: FoodList }) {
   const { selectedMonthNum } = useParams();
   const { t } = useTranslation();
   const monthNum = Number(selectedMonthNum) - 1;
-  const filteredFood:{[foodType:string]: FoodList} = {'Fruits': [], 'Veggies': []}
+  const filteredFood: { [foodType: string]: FoodList } = {
+    Fruits: [],
+    Veggies: [],
+  };
 
   //month change arrows function
   const navigate = useNavigate();
@@ -58,14 +61,11 @@ export default function FoodOfTheMonth({ food }: { food: FoodList }) {
   //styled MUI arrows
   const ArrowButton = styled(Link)(({ theme }) => ({
     color: alpha(theme.palette.common.black, 0.75),
-    width: "2em",
     "&:hover": {
       color: alpha(theme.palette.common.black, 0.95),
     },
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(1),
-      width: "auto",
-    },
+    marginLeft: theme.spacing(1),
+    width: "auto",
   }));
 
   return (
@@ -107,7 +107,7 @@ export default function FoodOfTheMonth({ food }: { food: FoodList }) {
           value="Veggies"
         />
       </Tabs>
-      <RenderFoods foodList={filteredFood[foodType]}/>
+      <RenderFoods foodList={filteredFood[foodType]} />
     </Box>
   );
 }
