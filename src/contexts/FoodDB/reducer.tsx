@@ -7,7 +7,6 @@ export interface IFoodDBState {
 export const reducer:React.Reducer<FoodList, any>  = (state, action) => {
   switch (action.type) {
     case "initDB":
-      console.log('PAYLOAD', action.payload)
       return { ...state, foodDB: action.payload };
 
     default:
