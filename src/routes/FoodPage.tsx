@@ -1,7 +1,7 @@
 import { currentMonth } from "../utils/utils";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect } from "react";
-import { Box, Typography, Button, Grid } from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 import { FoodDBContext } from "../contexts/FoodDB"
@@ -37,7 +37,6 @@ export default function FoodPage() {
     }
   }
 
-  const backBtn = useNavigate();
   const image = selectedFood ? selectedFood.image.toLowerCase() : '';
 
   const monthColor = (month: string) => {
@@ -55,13 +54,6 @@ export default function FoodPage() {
       }
     }
   };
-  const BackButton = styled(Button)(() => ({
-    width: "5em",
-    margin: "0",
-    position: "absolute",
-    left: "80%",
-    top: "14%",
-  }));
 
   const GridBox = styled(Box)(() => ({
     width: '6em',
@@ -104,10 +96,6 @@ export default function FoodPage() {
       marginX={1}
       justifyContent="space-between"
       alignItems="center">
-      <BackButton
-        variant="outlined"
-        onClick={() => backBtn(-1)}>{t('backButton')}
-      </BackButton>
       <Box
         display='flex'
         justifyContent='center'
