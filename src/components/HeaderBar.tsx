@@ -56,8 +56,8 @@ export default function HeaderBar(props: Props) {
     "&:hover": {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
-    marginLeft: 'auto',
-    width: "auto"
+    marginLeft: "auto",
+    width: "auto",
   }));
 
   const SearchIconWrapper = styled("div")(({ theme }) => ({
@@ -76,13 +76,10 @@ export default function HeaderBar(props: Props) {
       padding: theme.spacing(1, 1, 1, 0),
       // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create('width'),
-      width: "100%",
-      [theme.breakpoints.up("sm")]: {
-        width: "12ch",
-        "&:focus": {
-          width: "20ch",
-        },
+      transition: theme.transitions.create("width"),
+      width: "12ch",
+      "&:focus": {
+        width: "20ch",
       },
     },
   }));
@@ -97,18 +94,18 @@ export default function HeaderBar(props: Props) {
   const location = useLocation();
 
   function leftButton() {
-    if(location.pathname.split("/")[1] === "foodpage") {
+    if (location.pathname.split("/")[1] === "foodpage") {
       return (
         <IconButton
-        size="large"
-        edge="start"
-        color="inherit"
-        aria-label="open drawer"
-        onClick={() => navigate(-1)}
-      >
-        <ArrowBackIosNew />
-      </IconButton>
-      )
+          size="large"
+          edge="start"
+          color="inherit"
+          aria-label="open drawer"
+          onClick={() => navigate(-1)}
+        >
+          <ArrowBackIosNew />
+        </IconButton>
+      );
     }
     return (
       <IconButton
@@ -120,7 +117,7 @@ export default function HeaderBar(props: Props) {
       >
         <MenuIcon />
       </IconButton>
-    )
+    );
   }
 
   return (
