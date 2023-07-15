@@ -81,7 +81,7 @@ function Layout({ food }: { food: FoodList }) {
   const lngs = {
     en: { nativeName: "English" },
     it: { nativeName: "Italiano" },
-  } as { [key: string]: any };
+  } as { [key: string]: { nativeName: string } };
 
   const SelectLang = (
     <FormControl sx={{ minWidth: '100%' }} size="small">
@@ -94,7 +94,7 @@ function Layout({ food }: { food: FoodList }) {
         onChange={(event: SelectChangeEvent) => i18n.changeLanguage(event.target.value)}
       >
         {Object.keys(lngs).map((lng) => (
-          <MenuItem selected={i18n.resolvedLanguage === lng} value={lng}>{lngs[lng].nativeName}</MenuItem>
+          <MenuItem key={lng} selected={i18n.resolvedLanguage === lng} value={lng}>{lngs[lng].nativeName}</MenuItem>
         ))}
       </Select>
     </FormControl>
