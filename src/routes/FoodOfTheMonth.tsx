@@ -5,10 +5,12 @@ import { Box, Tab, Tabs, styled, alpha } from "@mui/material";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 import RenderFoods from "../components/RenderFoods";
 import { useTranslation } from "react-i18next"
+import { FoodDBContext } from "../contexts/FoodDB"
+import React from "react"
 
-export default function FoodOfTheMonth({food} : {food: FoodList}) {
+export default function FoodOfTheMonth() {
+  const [food, _] = React.useContext(FoodDBContext)
   const { selectedMonthNum  } = useParams();
-  console.log(selectedMonthNum)
   const { t } = useTranslation()
   const monthNum = Number(selectedMonthNum) - 1
 

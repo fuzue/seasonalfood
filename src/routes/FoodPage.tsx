@@ -1,12 +1,14 @@
-import type { FoodList } from "../types/food";
 import { currentMonth } from "../utils/utils";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Box, Typography, Button, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
+import { FoodDBContext } from "../contexts/FoodDB"
+import React from "react"
 
-export default function FoodPage({ food }: { food: FoodList }) {
+export default function FoodPage() {
+  const [ food, _ ] = React.useContext(FoodDBContext)
   const { id } = useParams();
   const { t } = useTranslation();
 
