@@ -1,7 +1,7 @@
-
 import type { FoodList } from "../types/food";
 import Item from "./Item";
 import { Grid, styled } from "@mui/material";
+import { FunctionComponent } from "react"
 
 const StyledGrid = styled(Grid)(() => ({
   display: "flex",
@@ -10,8 +10,13 @@ const StyledGrid = styled(Grid)(() => ({
   margin: "0.25em",
 }));
 
+interface RenderFoodProps {
+  foodList: FoodList
+}
+
 //render the grid of foods
-function RenderFoods(foodList: FoodList) {
+const RenderFoods:FunctionComponent<RenderFoodProps> = (props:RenderFoodProps) => {
+  const foodList = props.foodList
   const foodItems = foodList.map((item, key) => {
     return (
       <Grid item xs={4} key={key}>

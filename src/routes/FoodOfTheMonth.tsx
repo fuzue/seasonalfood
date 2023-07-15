@@ -33,10 +33,6 @@ export default function FoodOfTheMonth() {
   const fruitsList = filterFoodType(monthFood, "Fruits");
   const veggiesList = filterFoodType(monthFood, "Veggies");
 
-  //renders the fruits, veggies and others
-  const RenderFruits = () => RenderFoods(fruitsList);
-  const RenderVeggies = () => RenderFoods(veggiesList);
-
   //variables to handle the changing tabs
   const [foodType, setFoodType] = useState("Fruits" as FoodCategory);
   // @ts-ignore
@@ -48,9 +44,9 @@ export default function FoodOfTheMonth() {
   const changeTab = (foodType: FoodCategory) => {
     switch (foodType) {
       case "Fruits":
-        return <RenderFruits />;
+        return <RenderFoods foodList={fruitsList}/>;
       case "Veggies":
-        return <RenderVeggies />;
+        return <RenderFoods foodList={veggiesList}/>;
     }
   };
 
