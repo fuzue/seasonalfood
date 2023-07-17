@@ -14,8 +14,12 @@ import {
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 import RenderFoods from "../components/RenderFoods";
 import { useTranslation } from "react-i18next";
+import { FoodDBContext } from "../contexts/FoodDB"
+import React from "react"
+
 
 export default function FoodOfTheMonth({ food }: { food: FoodList }) {
+  const [food, _] = React.useContext(FoodDBContext)
   const { selectedMonthNum } = useParams();
   const { t } = useTranslation();
   const monthNum = Number(selectedMonthNum) - 1;
@@ -23,6 +27,7 @@ export default function FoodOfTheMonth({ food }: { food: FoodList }) {
     Fruits: [],
     Veggies: [],
   };
+
 
   //month change arrows function
   const navigate = useNavigate();
@@ -36,6 +41,7 @@ export default function FoodOfTheMonth({ food }: { food: FoodList }) {
   food.forEach((item) => {
     if (item.season[monthNum] === true) monthFood.push(item);
   });
+
 
   //filters the fruits and vegetables
   const filterFoodType = (monthFood: FoodList, foodCategory: FoodCategory) =>
@@ -106,6 +112,7 @@ export default function FoodOfTheMonth({ food }: { food: FoodList }) {
         />
       </Tabs>
       <RenderFoods foodList={filteredFood[foodType]} />
+
     </Box>
   );
 }

@@ -1,8 +1,11 @@
-
 import type { FoodList } from "../types/food";
 import Item from "./Item";
 import { Box, Stack } from "@mui/material";
 import { FunctionComponent } from "react";
+
+interface RenderFoodProps {
+  foodList: FoodList
+}
 
 interface RenderFoodProps {
   foodList: FoodList

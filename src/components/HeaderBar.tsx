@@ -1,6 +1,5 @@
-import type { FoodList } from "../types/food";
-
-import { useRef, useEffect } from "react";
+import type { FoodList, FoodObject } from "../types/food";
+import i18next from "i18next";
 import {
   AppBar,
   styled,
@@ -13,6 +12,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import { useTranslation } from "react-i18next";
 import { ArrowBackIosNew } from "@mui/icons-material";
+import Fuse from 'fuse.js'
+import { useRef, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom";
 
 type Props = {
@@ -42,11 +43,22 @@ export default function HeaderBar(props: Props) {
     if (query.current.value === "") {
       return food;
     }
-    return food.filter((item) => {
-      return item.description[0].name
-        .toLowerCase()
-        .includes(query.current.value.trim().toLowerCase());
-    });
+
+    // TODO: Load index pregenerated
+    const options = {
+      threshold: 0.3,
+      keys: [
+        { name: 'name-en', getFn: (food:FoodObject) => food.description[0].name },
+        { name: 'name-it', getFn: (food:FoodObject) => food.description[1].name }
+      ]
+    }
+
+    const fuse = new Fuse(food, options)
+    const searchText = query.current.value.trim().toLowerCase()
+    const searchLanguage:{[lang:string]:string} = {}
+    searchLanguage["name-" + i18next.language] = searchText
+
+    return fuse.search(searchLanguage).map((i) => i.item)
   };
 
   const Search = styled("div")(({ theme }) => ({
