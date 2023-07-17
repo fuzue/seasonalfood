@@ -3,7 +3,7 @@
 This is a simple app to show the current fruits and vegetables in different months in Italy.
 In the future we expect to add other countries as soon as we go data for that.
 
-![season-fruit](https://github.com/fuzue/seasonfood/assets/272892/abdff95a-d116-42c8-a8e8-54c34d1a5190)
+![season-fruit](https://github.com/fuzue/seasonfood/assets/272892/7956b59e-074a-4a27-ba7c-3f1d00c8897c)
 
 The project is written in React/Typescript using [MUI](https://mui.com/) library for the UI. The Android app is built using [Capacitor](https://capacitorjs.com/).
 
