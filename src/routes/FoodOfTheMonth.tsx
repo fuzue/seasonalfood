@@ -18,7 +18,7 @@ import { FoodDBContext } from "../contexts/FoodDB"
 import React from "react"
 
 
-export default function FoodOfTheMonth({ food }: { food: FoodList }) {
+export default function FoodOfTheMonth() {
   const [food, _] = React.useContext(FoodDBContext)
   const { selectedMonthNum } = useParams();
   const { t } = useTranslation();
