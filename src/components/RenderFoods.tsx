@@ -1,14 +1,11 @@
 import type { FoodList } from "../types/food";
 import Item from "./Item";
-import { Grid, styled } from "@mui/material";
-import { FunctionComponent } from "react"
+import { Box, Stack } from "@mui/material";
+import { FunctionComponent } from "react";
 
-const StyledGrid = styled(Grid)(() => ({
-  display: "flex",
-  justifyContent: "space-around",
-  alignItems: "center",
-  margin: "0.25em",
-}));
+interface RenderFoodProps {
+  foodList: FoodList
+}
 
 interface RenderFoodProps {
   foodList: FoodList
@@ -19,15 +16,15 @@ const RenderFoods:FunctionComponent<RenderFoodProps> = (props:RenderFoodProps) =
   const foodList = props.foodList
   const foodItems = foodList.map((item, key) => {
     return (
-      <Grid item xs={4} key={key}>
-        <Item key={key} {...item} />
-      </Grid>
+      <Box sx={{m: 2, display: 'flex', flexGrow: 1, justifyContent: "center"}} key={key}>
+        <Item {...item} />
+      </Box>
     );
   });
   return (
-    <StyledGrid container spacing={2}>
+    <Stack direction="row" flexWrap="wrap">
       {foodItems}
-    </StyledGrid>
+    </Stack>
   );
 }
 

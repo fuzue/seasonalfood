@@ -1,7 +1,7 @@
 import { currentMonth } from "../utils/utils";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect } from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
 import { FoodDBContext } from "../contexts/FoodDB"
@@ -65,43 +65,33 @@ export default function FoodPage() {
   }));
 
   const ImgBox = styled(Box)(() => ({
-    objectFit: "cover",
-    margin: "1em",
-    width: "40%",
-    maxHeight: "160px",
+    position: "relative",
+    overflow: "hidden",
+    width: "8rem",
+    height: "8rem",
+    borderRadius: "1rem",
+    boxShadow: "3px 4px 8px #888888"
   }));
 
   const renderMonths = () => {
     return months.map((month) => {
       let userNumber = Number(month) + 1
       return (
-        <Grid item
-          className="grid-item"
-          xs={4}
-          key={month.toString()}
-        >
           <GridBox
-            sx={monthColor(month)}>
+            sx={{...monthColor(month), m: 1}}>
             <Link to={`/month/${userNumber}`}>
               {t(`month_${month}`)}
             </Link>
           </GridBox>
-        </Grid>
       );
     });
   }
 
   return (
     <Box
-      marginX={1}
       justifyContent="space-between"
       alignItems="center">
-      <Box
-        display='flex'
-        justifyContent='center'
-        textAlign='left'
-        marginTop='1.5em'
-      >
+      <Stack direction="row" padding={2}>
         <ImgBox>
           <img className='foodPage-image' src={`../images/${image}.png`} alt={`photo of ${image}`} />
         </ImgBox>
@@ -113,27 +103,28 @@ export default function FoodPage() {
           alignItems="left"
           justifyContent="center"
           width="50%">
-          <Typography variant="h6"> {/* typescript problem */}
-            {t(selectedFood?selectedFood.description[0].name:'FOOD NOT FOUND')}:
+          <Typography variant="h5" sx={{fontWeight: 700}}> {/* typescript problem */}
+            {t(selectedFood?selectedFood.description[0].name:'FOOD NOT FOUND')}
           </Typography>
           <Typography>{t(seasonStatus)}</Typography>
-        </Box>
       </Box>
+      </Stack>
 
       {/* BOTTOM GRID WITH MONTHS */}
       <Box
         sx={{
           margin: '1em ',
         }}>
-        <Typography marginY={2} variant="h6" >
+        {/* <Typography marginY={2} variant="h6" >
           {t('FoodPage_monthsInSeason')}
-        </Typography>
-        <Grid container
+        </Typography> */}
+        <Stack
           direction="row"
-          spacing={3}
+          flexWrap="wrap"
+          justifyContent="space-around"
         >
           {renderMonths()}
-        </Grid>
+        </Stack>
       </Box>
     </Box>
   );
