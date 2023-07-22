@@ -88,14 +88,14 @@ export default function FoodOfTheMonth() {
       <Tabs
         value={foodType}
         onChange={(_, value) => handleChange(value)}
-        variant="fullWidth"
-        sx={{ fontWeight: 700 }}
+        variant="fullWidth"     
+        sx={{ fontWeight: 700}}
         aria-label="tabs for the selection of fruits, vegetables or others"
       >
         <Tab
           label={
             <span>
-              <Chip label={num_fruits} sx={{ mr: 1 }} size="small" />
+              <Chip label={num_fruits} sx={{ mr: 1, }} size="small" />
               {t("FoodOfTheMonth_fruitsTabText")}
             </span>
           }

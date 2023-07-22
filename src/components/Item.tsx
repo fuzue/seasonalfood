@@ -10,6 +10,7 @@ const ImgBox = styled(Box)(({ theme }) => ({
   width: "6em",
   boxShadow: "3px 4px 8px #888888",
   textAlign: "center",
+  backgroundColor:"#fefefe",
   [theme.breakpoints.down("xs")]: {
     width: "115px",
   },

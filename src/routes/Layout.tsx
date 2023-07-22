@@ -30,13 +30,15 @@ import { useTranslation } from "react-i18next";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#13bf8d",
-      light: "#f4fbeb",
-      dark: "#555766",
+      main: "#3A6351",
+      light: "#F2EDD7",
+      dark: "#393232", 
+      
+      
     },
     secondary: {
-      main: "#ff7664", //red
-      dark: "#4071d8", //blue
+      main: "#E48257", //red
+      
     },
   }
 });
@@ -149,7 +151,7 @@ function Layout({ food }: { food: FoodList }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <MainBox bgcolor="primary.white" className="main-container">
+      <MainBox bgcolor="primary.light" className="main-container">
         <Drawer open={state} onClick={toggleDrawer}>
           {sideBarList}
         </Drawer>

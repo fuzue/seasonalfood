@@ -98,7 +98,7 @@ export default function HeaderBar(props: Props) {
 
   const StyledAppBar = styled(AppBar)(() => ({
     borderRadius: "2%",
-    background: "#13bf8d",
+    background: 'primary.main' ,
     marginTop: "0",
   }));
 
