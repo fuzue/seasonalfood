@@ -1,19 +1,18 @@
 import type { FoodObject } from "../types/food"
 
 import { Link } from "react-router-dom";
-import { Box, Typography, styled } from "@mui/material";
+import { Box, Stack, Typography, styled } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 
-const ImgBox = styled(Box)(({ theme }) => ({
+const ImgBox = styled(Stack)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
-  width: "6em",
+  width: "7em",
+  height: "7em",
   boxShadow: "3px 4px 8px #888888",
-  textAlign: "center",
-  backgroundColor:"#fefefe",
-  [theme.breakpoints.down("xs")]: {
-    width: "115px",
-  },
+  overflow: "clip",
+  color: theme.palette.text.secondary,
+  backgroundColor: theme.palette.primary.dark
 }));
 
 function Item(props: FoodObject) {
@@ -22,12 +21,14 @@ function Item(props: FoodObject) {
   return (
     <Link to={`/foodpage/${props.description[0].slug}`}>
       <ImgBox>
-        <img
-          className="food-image"
-          src={`../images/${image}.png`}
-          alt={`image of ${image}`}
-        />
-        <Typography sx={{ paddingBottom: "0.25em" }}>
+        <Box position="relative" flexGrow={1}>
+          <img
+            className="food-image"
+            src={`../images/${image}.png`}
+            alt={`image of ${image}`}
+          />
+        </Box>
+        <Typography textAlign="center" sx={{ py: "0.25em" }}>
           {t(props.description[0].name)}
         </Typography>
       </ImgBox>

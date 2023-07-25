@@ -1,5 +1,10 @@
 import type { FoodList, FoodObject } from "../types/food";
+import Fuse from 'fuse.js'
+import { useRef, useEffect } from "react"
+import { useNavigate, useLocation } from "react-router-dom";
 import i18next from "i18next";
+import { useTranslation } from "react-i18next";
+import { ArrowBackIosNew, Menu, Search } from "@mui/icons-material";
 import {
   AppBar,
   styled,
@@ -8,13 +13,6 @@ import {
   IconButton,
   InputBase,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
-import { useTranslation } from "react-i18next";
-import { ArrowBackIosNew } from "@mui/icons-material";
-import Fuse from 'fuse.js'
-import { useRef, useEffect } from "react"
-import { useNavigate, useLocation } from "react-router-dom";
 
 type Props = {
   ifSearched: boolean;
@@ -61,7 +59,7 @@ export default function HeaderBar(props: Props) {
     return fuse.search(searchLanguage).map((i) => i.item)
   };
 
-  const Search = styled("div")(({ theme }) => ({
+  const SearchBar = styled("div")(({ theme }) => ({
     position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -86,20 +84,19 @@ export default function HeaderBar(props: Props) {
     color: "inherit",
     "& .MuiInputBase-input": {
       padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create("width"),
-      width: "12ch",
+      transition: theme.transitions.create("max-width"),
+      width: "100%",
+      maxWidth: "0ch",
       "&:focus": {
-        width: "20ch",
+        maxWidth: "20ch",
       },
     },
   }));
 
   const StyledAppBar = styled(AppBar)(() => ({
-    borderRadius: "2%",
-    background: 'primary.main' ,
-    marginTop: "0",
+    background: 'primary.main',
+    marginTop: "0"
   }));
 
   const navigate = useNavigate();
@@ -127,7 +124,7 @@ export default function HeaderBar(props: Props) {
         aria-label="open drawer"
         onClick={props.toggleDrawer}
       >
-        <MenuIcon />
+        <Menu />
       </IconButton>
     );
   }
@@ -136,16 +133,15 @@ export default function HeaderBar(props: Props) {
     <StyledAppBar position="static">
       <Toolbar>
         {leftButton()}
-        <Search>
+        <SearchBar>
           <SearchIconWrapper>
             <IconButton
               size="large"
               edge="start"
               color="inherit"
               aria-label="open drawer"
-              sx={{ mr: 2 }}
             >
-              <SearchIcon type="submit" />
+              <Search />
             </IconButton>
           </SearchIconWrapper>
           <form onSubmit={(e) => handleSubmit(e)}>
@@ -156,7 +152,7 @@ export default function HeaderBar(props: Props) {
               id="search-bar"
             />
           </form>
-        </Search>
+        </SearchBar>
       </Toolbar>
     </StyledAppBar>
   );
