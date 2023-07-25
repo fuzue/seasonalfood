@@ -81,7 +81,7 @@ export default function FoodOfTheMonth() {
         direction="row"
         justifyContent="space-between"
         bgcolor="primary.dark"
-        color="text.secondary"
+        color="primary.light"
         boxShadow="0 2px 4px #332323"
       >
         <ArrowButton to={`/month/${prevMonth + 1}`}>

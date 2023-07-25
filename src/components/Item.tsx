@@ -11,7 +11,7 @@ const ImgBox = styled(Stack)(({ theme }) => ({
   height: "7em",
   boxShadow: "3px 4px 8px #888888",
   overflow: "clip",
-  color: theme.palette.text.secondary,
+  color: theme.palette.primary.light,
   backgroundColor: theme.palette.primary.dark
 }));
 

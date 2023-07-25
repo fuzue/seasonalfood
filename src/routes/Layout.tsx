@@ -12,13 +12,14 @@ import {
   Drawer,
   ThemeProvider,
 } from "@mui/material";
+import SideBarDialog from "../components/SideBarDialog";
 
 //BASIC MUI COLORS AND BREAKPOINTS
 const theme = createTheme({
   palette: {
     text: {
       primary: "#674747",
-      secondary: "#EEEEEE",
+      secondary: "#999"
     },
     primary: {
       main: "#829460",
@@ -50,10 +51,20 @@ function Layout({ food }: { food: FoodList }) {
   const [state, setState] = useState(false);
   const toggleDrawer = () => setState(!state);
 
+  //Side bar dialog code that opens with each element clicked
+  const [open, setOpen] = useState(false);
+  const [dialogType, setDialogType] = useState("");
+
+  const handleClose = () => setOpen(false);
+  const handleClickOpen = (itemClickedName: string) => {
+    setOpen(true);
+    setDialogType(itemClickedName);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <Drawer open={state} onClick={toggleDrawer}>
-        <SideBarList />
+        <SideBarList handleClickOpen={handleClickOpen} />
       </Drawer>
       <Box bgcolor="primary.light" height="100%">
         <HeaderBar
@@ -69,7 +80,11 @@ function Layout({ food }: { food: FoodList }) {
             closeModal={closeModal}
           />
         ) : null}
-
+        <SideBarDialog
+          open={open}
+          dialogType={dialogType}
+          handleClose={handleClose}
+        />
         <Box maxWidth={520} mx="auto">
           <Outlet />
         </Box>

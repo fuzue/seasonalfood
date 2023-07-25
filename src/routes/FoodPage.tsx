@@ -96,7 +96,7 @@ export default function FoodPage() {
           px={2}
           py={0.5}
           bgcolor="primary.dark"
-          color="text.secondary"
+          color="primary.light"
           textAlign="center"
         >
           {t(
@@ -118,7 +118,7 @@ export default function FoodPage() {
               : "secondary.main"
           }
         >
-          <Typography variant="h6" py={1} sx={{ fontWeight: 700 }} color="text.secondary">
+          <Typography variant="h6" py={1} sx={{ fontWeight: 700 }} color="primary.light">
             {t(seasonStatus)}
           </Typography>
         </Box>

@@ -8,12 +8,7 @@ import {
   Divider
 } from "@mui/material";
 
-export default function sideBarList() {
-  // open side bar code
-  const handleClickOpen = (itemClickedName: string) => {
-    console.log(itemClickedName)
-  };
-
+export default function sideBarList(props) {
   return (
     <Stack
       height="100%"
@@ -32,21 +27,21 @@ export default function sideBarList() {
       </ListItem>
       <Divider />
       <ListItem disablePadding>
-        <ListItemButton onClick={() => handleClickOpen("about")}>
+        <ListItemButton onClick={() => props.handleClickOpen("about")}>
           <Typography variant="button" display="block" gutterBottom>
             about the app
           </Typography>
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
-        <ListItemButton onClick={() => handleClickOpen("contribute")}>
+        <ListItemButton onClick={() => props.handleClickOpen("contribute")}>
           <Typography variant="button" display="block" gutterBottom>
             contribute
           </Typography>
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
-        <ListItemButton onClick={() => handleClickOpen("contact")}>
+        <ListItemButton onClick={() => props.handleClickOpen("contact")}>
           <Typography variant="button" display="block" gutterBottom>
             contact us
           </Typography>
