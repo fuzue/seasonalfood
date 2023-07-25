@@ -16,7 +16,7 @@ const RenderFoods:FunctionComponent<RenderFoodProps> = (props:RenderFoodProps) =
   const foodList = props.foodList
   const foodItems = foodList.map((item, key) => {
     return (
-      <Box sx={{m: 2, display: 'flex', flexGrow: 1, justifyContent: "center"}} key={key}>
+      <Box sx={{mb: 1, mx: '5px', display: 'flex', flexGrow: 1, justifyContent: "center"}} key={key}>
         <Item {...item} />
       </Box>
     );

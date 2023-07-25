@@ -91,7 +91,7 @@ export default function FoodPage() {
     <Box
       justifyContent="space-between"
       alignItems="center">
-      <Stack direction="row" padding={2}>
+      <Stack direction="row">
         <ImgBox>
           <img className='foodPage-image' src={`../images/${image}.png`} alt={`photo of ${image}`} />
         </ImgBox>
@@ -113,7 +113,7 @@ export default function FoodPage() {
       {/* BOTTOM GRID WITH MONTHS */}
       <Box
         sx={{
-          margin: '1em ',
+          margin: '0',
         }}>
         {/* <Typography marginY={2} variant="h6" >
           {t('FoodPage_monthsInSeason')}

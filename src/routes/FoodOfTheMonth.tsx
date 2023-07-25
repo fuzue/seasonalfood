@@ -88,7 +88,7 @@ export default function FoodOfTheMonth() {
       <Tabs
         value={foodType}
         onChange={(_, value) => handleChange(value)}
-        variant="fullWidth"     
+        variant="fullWidth"
         sx={{ fontWeight: 700}}
         aria-label="tabs for the selection of fruits, vegetables or others"
       >
@@ -111,7 +111,9 @@ export default function FoodOfTheMonth() {
           value="Veggies"
         />
       </Tabs>
+      <Box m={1}>
       <RenderFoods foodList={filteredFood[foodType]} />
+      </Box>
 
     </Box>
   );
