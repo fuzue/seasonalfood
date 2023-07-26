@@ -59,46 +59,6 @@ export default function HeaderBar(props: Props) {
     return fuse.search(searchLanguage).map((i) => i.item)
   };
 
-  const SearchBar = styled("div")(({ theme }) => ({
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginLeft: "auto",
-    width: "auto",
-  }));
-
-  const SearchIconWrapper = styled("div")(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  }));
-
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "inherit",
-    "& .MuiInputBase-input": {
-      padding: theme.spacing(1, 1, 1, 0),
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create("max-width"),
-      width: "100%",
-      maxWidth: "0ch",
-      "&:focus": {
-        maxWidth: "20ch",
-      },
-    },
-  }));
-
-  const StyledAppBar = styled(AppBar)(() => ({
-    background: 'primary.main',
-    marginTop: "0"
-  }));
-
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -109,7 +69,7 @@ export default function HeaderBar(props: Props) {
           size="large"
           edge="start"
           color="inherit"
-          aria-label="open drawer"
+          aria-label="return"
           onClick={() => navigate(-1)}
         >
           <ArrowBackIosNew />
@@ -129,13 +89,51 @@ export default function HeaderBar(props: Props) {
     );
   }
 
+  const SearchBar = styled("div")(({ theme }) => ({
+    position: "relative",
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    "&:hover": {
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginLeft: "auto",
+    width: "auto",
+  }));
+
+  const SearchIconWrapper = styled("div")(({ theme }) => ({
+    height: "100%",
+    aspectRatio: 1,
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }));
+
+  const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: "inherit",
+    "& .MuiInputBase-input": {
+      padding: theme.spacing(1, 1, 1, 0),
+      paddingLeft: `calc(1em + ${theme.spacing(3)})`,
+      transition: theme.transitions.create("max-width"),
+      width: "100%",
+      maxWidth: "0ch",
+      "&:focus": {
+        maxWidth: "20ch",
+      },
+    },
+  }));
+
+
+
   return (
-    <StyledAppBar position="static">
+    <AppBar position="static" sx={{mb: 1}}>
       <Toolbar>
         {leftButton()}
         <SearchBar>
           <SearchIconWrapper>
             <IconButton
+              sx={{m: 0}}
               size="large"
               edge="start"
               color="inherit"
@@ -154,6 +152,6 @@ export default function HeaderBar(props: Props) {
           </form>
         </SearchBar>
       </Toolbar>
-    </StyledAppBar>
+    </AppBar>
   );
 }

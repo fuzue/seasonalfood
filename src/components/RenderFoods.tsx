@@ -16,13 +16,11 @@ const RenderFoods:FunctionComponent<RenderFoodProps> = (props:RenderFoodProps) =
   const foodList = props.foodList
   const foodItems = foodList.map((item, key) => {
     return (
-      <Box sx={{mb: 1, mx: '5px', display: 'flex', flexGrow: 1, justifyContent: "center"}} key={key}>
-        <Item {...item} />
-      </Box>
+      <Item {...item} />
     );
   });
   return (
-    <Stack direction="row" flexWrap="wrap">
+    <Stack direction="row" flexWrap="wrap" justifyContent="space-between" gap={1.5}>
       {foodItems}
     </Stack>
   );

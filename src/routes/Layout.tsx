@@ -11,6 +11,7 @@ import {
   Box,
   Drawer,
   ThemeProvider,
+  Stack,
 } from "@mui/material";
 import SideBarDialog from "../components/SideBarDialog";
 
@@ -66,7 +67,7 @@ function Layout({ food }: { food: FoodList }) {
       <Drawer open={state} onClick={toggleDrawer}>
         <SideBarList handleClickOpen={handleClickOpen} />
       </Drawer>
-      <Box bgcolor="primary.light" height="100%">
+      <Stack bgcolor="primary.light" height="100%" maxWidth={1024} mx="auto" p={1}>
         <HeaderBar
           onSearch={onSearch}
           toggleDrawer={toggleDrawer}
@@ -85,10 +86,10 @@ function Layout({ food }: { food: FoodList }) {
           dialogType={dialogType}
           handleClose={handleClose}
         />
-        <Box maxWidth={520} mx="auto">
+        <Box flexGrow={1} overflow="hidden">
           <Outlet />
         </Box>
-      </Box>
+      </Stack>
     </ThemeProvider>
   );
 }

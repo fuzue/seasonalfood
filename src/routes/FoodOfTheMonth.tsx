@@ -76,7 +76,7 @@ export default function FoodOfTheMonth() {
   }));
 
   return (
-    <Box>
+    <Stack height="100%">
       <ShadowBox
         direction="row"
         justifyContent="space-between"
@@ -98,7 +98,7 @@ export default function FoodOfTheMonth() {
         value={foodType}
         onChange={(_, value) => handleChange(value)}
         variant="fullWidth"
-        sx={{ fontWeight: 700 }}
+        sx={{ fontWeight: 700, mt: 1 }}
         aria-label="tabs for the selection of fruits, vegetables or others"
       >
         <Tab
@@ -120,9 +120,9 @@ export default function FoodOfTheMonth() {
           value="Veggies"
         />
       </Tabs>
-      <Box m={1}>
+      <Box flexGrow={1} my={2} overflow="auto">
         <RenderFoods foodList={filteredFood[foodType]} />
       </Box>
-    </Box>
+    </Stack>
   );
 }

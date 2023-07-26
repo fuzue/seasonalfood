@@ -55,16 +55,16 @@ export default function FoodPage() {
   };
 
   const GridBox = styled(Box)(() => ({
-    width: "6em",
+    width: "24%",
+    aspectRatio: 2,
     borderRadius: ".5em",
-    height: "2.5em",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    my: 1
   }));
 
   const ShadowBox = styled(Box)(({ theme }) => ({
+    position: "relative",
     boxShadow: `0 2px 4px ${theme.palette.secondary.dark}`,
   }));
 
@@ -72,14 +72,14 @@ export default function FoodPage() {
     position: "relative",
     overflow: "hidden",
     width: "100%",
-    height: "12rem"
+    aspectRatio: 2,
   }));
 
   const renderMonths = () => {
     return months.map((month) => {
       let userNumber = Number(month) + 1;
       return (
-        <GridBox sx={{...monthColor(month), m: .6}}>
+        <GridBox sx={{ ...monthColor(month), mb: 1 }}>
           <Link to={`/month/${userNumber}`}>
             <Typography>{t(`month_${month}`)}</Typography>
           </Link>
@@ -91,18 +91,24 @@ export default function FoodPage() {
   return (
     <Box justifyContent="space-between" alignItems="center">
       <ShadowBox>
-        <Typography
-          variant="h6"
-          px={2}
-          py={0.5}
-          bgcolor="primary.dark"
-          color="primary.light"
-          textAlign="center"
+        <Box
+          textAlign="right"
+          bgcolor={
+            seasonStatus === "FoodPage_inSeasonText"
+              ? "primary.main"
+              : "primary.dark"
+          }
         >
-          {t(
-            selectedFood ? selectedFood.description[0].name : "FOOD NOT FOUND"
-          )}
-        </Typography>
+          <Typography
+            variant="h6"
+            pt={1}
+            pr={2}
+            sx={{ fontWeight: 700 }}
+            color="primary.light"
+          >
+            {t(seasonStatus)}
+          </Typography>
+        </Box>
         <ImgBox>
           <img
             className="food-image"
@@ -110,20 +116,34 @@ export default function FoodPage() {
             alt={`photo of ${image}`}
           />
         </ImgBox>
-        <Box
-          textAlign="center"
-          bgcolor={
-            seasonStatus === "FoodPage_inSeasonText"
-              ? "primary.main"
-              : "secondary.main"
-          }
-        >
-          <Typography variant="h6" py={1} sx={{ fontWeight: 700 }} color="primary.light">
-            {t(seasonStatus)}
+        <Typography
+            position="absolute"
+            variant="h2"
+            fontWeight={700}
+            color="primary.light"
+            textAlign="center"
+            top={0}
+            sx={{transform: "translateY(-20%)"}}
+          >
+            {t(
+              selectedFood ? selectedFood.description[0].name : "FOOD NOT FOUND"
+            )}
           </Typography>
-        </Box>
       </ShadowBox>
-      <Stack direction="row" flexWrap="wrap" py={1} justifyContent="space-around">
+      <Typography
+        variant="h6"
+        p={2.5}
+        sx={{ fontWeight: 700 }}
+        color="primary.dark"
+      >
+       {t("FoodPage_checkMonths")}
+      </Typography>
+      <Stack
+        direction="row"
+        flexWrap="wrap"
+        py={2}
+        justifyContent="space-around"
+      >
         {renderMonths()}
       </Stack>
     </Box>
