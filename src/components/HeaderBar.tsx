@@ -127,7 +127,7 @@ export default function HeaderBar(props: Props) {
 
 
   return (
-    <AppBar position="static" sx={{mb: 1}}>
+    <AppBar position="static" sx={{mb: 1, backgroundColor:"primary.dark"}}>
       <Toolbar>
         {leftButton()}
         <SearchBar>

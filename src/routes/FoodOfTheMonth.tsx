@@ -61,9 +61,9 @@ export default function FoodOfTheMonth() {
 
   //styled MUI arrows
   const ArrowButton = styled(Link)(({ theme }) => ({
-    color: alpha(theme.palette.text.secondary, 0.75),
+    color: alpha(theme.palette.primary.light, 0.75),
     "&:hover": {
-      color: alpha(theme.palette.text.secondary, 0.95),
+      color: alpha(theme.palette.primary.light, 0.95),
     },
     display: "flex",
     alignItems: "center",
@@ -72,7 +72,7 @@ export default function FoodOfTheMonth() {
   }));
 
   const ShadowBox = styled(Stack)(({ theme }) => ({
-    boxShadow: `0 2px 4px ${theme.palette.secondary.dark}`,
+    boxShadow: `0 2px 4px ${theme.palette.secondary}`,
   }));
 
   return (
@@ -80,7 +80,7 @@ export default function FoodOfTheMonth() {
       <ShadowBox
         direction="row"
         justifyContent="space-between"
-        bgcolor="primary.dark"
+        bgcolor="secondary.main"
         color="primary.light"
         boxShadow="0 2px 4px #332323"
       >

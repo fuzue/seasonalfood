@@ -48,8 +48,8 @@ export default function FoodPage() {
       };
     } else {
       return {
-        color: "gray",
-        backgroundColor: "secondary.light",
+        color: "secondary.light",
+        backgroundColor: "primary.light",
       };
     }
   };
@@ -103,14 +103,14 @@ export default function FoodPage() {
         <Stack px={2}>
           <Typography
             fontWeight={700}
-            color={ seasonStatus === "FoodPage_inSeasonText" ? "primary.main" : "secondary.main"}>
+            color={ seasonStatus === "FoodPage_inSeasonText" ? "primary.dark" : "secondary.main"}>
             {t(seasonStatus)}
           </Typography>
           <Typography
             variant="h3"
             mt="auto"
             sx={{ fontWeight: 700 }}
-            color="primary.dark"
+            color="secondary.main"
           >
             {t(
               selectedFood ? selectedFood.description[0].name : "FOOD NOT FOUND"

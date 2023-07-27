@@ -11,7 +11,8 @@ const ImgBox = styled(Stack)(({ theme }) => ({
   boxShadow: "3px 4px 8px #888888",
   overflow: "clip",
   color: theme.palette.primary.light,
-  backgroundColor: theme.palette.primary.dark,
+  backgroundColor: theme.palette.primary.main, 
+  
 }));
 
 function Item(props: FoodObject) {
@@ -30,12 +31,12 @@ function Item(props: FoodObject) {
               alt={`image of ${image}`}
             />
           </Box>
-          <Box position="relative" height="20%">
+          <Box position="relative" height="20%" sx={{ textAlign: 'center'}}>
             <Typography
-              position="absolute"
+              
               top={0}
               fontSize="max(1rem, min(4.5vw, 3rem))"
-              fontWeight={700}
+              fontWeight={400}
               sx={{ p: "0.25em", transform: "translateY(-20%)" }}
             >
               {t(props.description[0].name)}

@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import HeaderBar from "../components/HeaderBar";
 import SearchResult from "../components/SearchResult";
-import SideBarList from "../components/sideBarList";
+import SideBarList from "../components/SideBarList";
 
 /* MUI IMPORTS */
 import {
@@ -22,16 +22,27 @@ const theme = createTheme({
       primary: "#674747",
       secondary: "#999"
     },
-    primary: {
-      main: "#829460",
-      light: "#EEEEEE",
-      dark: "#674747",
+    primary: { 
+      main: "#5a175d", //purple
+      light: "#f3ecf1", //cream - bg-color
+      dark: "#67074a", // purple/red
     },
     secondary: {
-      main: "#F96666", //red
-      light: "#DBDBDB",
-      dark: "#332323"
+      main: "#05878a", //blue-green light
+      light: "#074d6790", // blue-green transparent
     },
+
+    //OP 1 DE CORES
+    /* primary: { //green
+      main: "#36a859",
+      light: "#f3ecf1", //cream - bg-color
+      dark: "#2c6e49",
+    },
+    secondary: {
+      main: "#d55314", //orange
+      light: "#ffc9b9", //pink
+    }, */
+
   },
 });
 
