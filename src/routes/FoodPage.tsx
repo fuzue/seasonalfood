@@ -107,7 +107,7 @@ export default function FoodPage() {
             {t(seasonStatus)}
           </Typography>
           <Typography
-            variant="h3"
+            variant="h4"
             mt="auto"
             sx={{ fontWeight: 700 }}
             color="primary.dark"
