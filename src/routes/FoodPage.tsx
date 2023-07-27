@@ -63,16 +63,14 @@ export default function FoodPage() {
     alignItems: "center",
   }));
 
-  const ShadowBox = styled(Box)(({ theme }) => ({
-    position: "relative",
-    boxShadow: `0 2px 4px ${theme.palette.secondary.dark}`,
-  }));
-
   const ImgBox = styled(Box)(() => ({
     position: "relative",
     overflow: "hidden",
-    width: "100%",
-    aspectRatio: 2,
+    borderRadius: 15,
+    width: "15%",
+    minWidth: 100,
+    aspectRatio: 1,
+    my: 2,
   }));
 
   const renderMonths = () => {
@@ -89,26 +87,12 @@ export default function FoodPage() {
   };
 
   return (
-    <Box justifyContent="space-between" alignItems="center">
-      <ShadowBox>
-        <Box
-          textAlign="right"
-          bgcolor={
-            seasonStatus === "FoodPage_inSeasonText"
-              ? "primary.main"
-              : "primary.dark"
-          }
-        >
-          <Typography
-            variant="h6"
-            pt={1}
-            pr={2}
-            sx={{ fontWeight: 700 }}
-            color="primary.light"
-          >
-            {t(seasonStatus)}
-          </Typography>
-        </Box>
+    <Stack
+      justifyContent="space-between"
+      width="100%"
+      overflow="auto"
+    >
+      <Stack direction="row" width="100%">
         <ImgBox>
           <img
             className="food-image"
@@ -116,27 +100,31 @@ export default function FoodPage() {
             alt={`photo of ${image}`}
           />
         </ImgBox>
-        <Typography
-            position="absolute"
-            variant="h2"
+        <Stack px={2}>
+          <Typography
             fontWeight={700}
-            color="primary.light"
-            textAlign="center"
-            top={0}
-            sx={{transform: "translateY(-20%)"}}
+            color={ seasonStatus === "FoodPage_inSeasonText" ? "primary.main" : "secondary.main"}>
+            {t(seasonStatus)}
+          </Typography>
+          <Typography
+            variant="h3"
+            mt="auto"
+            sx={{ fontWeight: 700 }}
+            color="primary.dark"
           >
             {t(
               selectedFood ? selectedFood.description[0].name : "FOOD NOT FOUND"
             )}
           </Typography>
-      </ShadowBox>
+        </Stack>
+      </Stack>
       <Typography
         variant="h6"
-        p={2.5}
+        py={2.5}
         sx={{ fontWeight: 700 }}
         color="primary.dark"
       >
-       {t("FoodPage_checkMonths")}
+        {t("FoodPage_checkMonths")}
       </Typography>
       <Stack
         direction="row"
@@ -146,6 +134,6 @@ export default function FoodPage() {
       >
         {renderMonths()}
       </Stack>
-    </Box>
+    </Stack>
   );
 }
