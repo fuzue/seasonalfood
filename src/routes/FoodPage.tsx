@@ -42,14 +42,15 @@ export default function FoodPage() {
   const monthColor = (month: string) => {
     if (seasonMonths.includes(month)) {
       return {
-        backgroundColor: "primary.dark",
+        backgroundColor: "secondary.dark",
         color: "primary.light",
         boxShadow: `0 2px 4px #888888`,
       };
     } else {
       return {
-        color: "secondary.light",
+        color: "primary.main",
         backgroundColor: "primary.light",
+        opacity: ".5"
       };
     }
   };
@@ -57,7 +58,7 @@ export default function FoodPage() {
   const GridBox = styled(Box)(() => ({
     width: "24%",
     aspectRatio: 2,
-    borderRadius: ".5em",
+    borderRadius: ".25em",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -66,11 +67,11 @@ export default function FoodPage() {
   const ImgBox = styled(Box)(() => ({
     position: "relative",
     overflow: "hidden",
-    borderRadius: 15,
     width: "15%",
     minWidth: 100,
     aspectRatio: 1,
-    my: 2,
+    mx: "0.5em",
+
   }));
 
   const renderMonths = () => {
@@ -101,13 +102,8 @@ export default function FoodPage() {
           />
         </ImgBox>
         <Stack px={2}>
-          <Typography
-            fontWeight={700}
-            color={ seasonStatus === "FoodPage_inSeasonText" ? "primary.dark" : "secondary.main"}>
-            {t(seasonStatus)}
-          </Typography>
-          <Typography
-            variant="h3"
+        <Typography
+            variant="h4"
             mt="auto"
             sx={{ fontWeight: 700 }}
             color="secondary.main"
@@ -116,15 +112,23 @@ export default function FoodPage() {
               selectedFood ? selectedFood.description[0].name : "FOOD NOT FOUND"
             )}
           </Typography>
+          <Typography
+            fontWeight={700}
+            color={seasonStatus === "FoodPage_inSeasonText" ? "secondary.main" : "primary.main"}>
+            {t(seasonStatus)}
+          </Typography>
+         
         </Stack>
       </Stack>
       <Typography
         variant="h6"
-        py={2.5}
+        textAlign="center"
+        mt={3}
         sx={{ fontWeight: 700 }}
-        color="primary.dark"
+        color="secondary.dark"
+        
       >
-        {t("FoodPage_checkMonths")}
+        {t("FoodPage_monthsInSeason")}
       </Typography>
       <Stack
         direction="row"
