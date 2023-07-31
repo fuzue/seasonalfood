@@ -102,7 +102,11 @@ export default function FoodPage() {
           />
         </ImgBox>
         <Stack px={2}>
-        <Typography
+          <Typography
+            color={ seasonStatus === "FoodPage_inSeasonText" ? "primary.main" : "secondary.main"}>
+            {t(seasonStatus)}
+          </Typography>
+          <Typography
             variant="h4"
             mt="auto"
             sx={{ fontWeight: 700 }}
