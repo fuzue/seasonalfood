@@ -100,7 +100,7 @@ export default function HeaderBar(props: Props) {
     width: "auto",
   }));
 
-  const SearchIconWrapper = styled("div")(({ theme }) => ({
+  const SearchIconWrapper = styled("div")(() => ({
     height: "100%",
     aspectRatio: 1,
     position: "absolute",

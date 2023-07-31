@@ -8,7 +8,7 @@ import {
   Divider
 } from "@mui/material";
 
-export default function SideBarList(props) {
+export default function SideBarList(props: any) {
   return (
     <Stack
       height="100%"
