@@ -30,8 +30,8 @@ import { useTranslation } from "react-i18next";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#000",
-      light: "#333",
+      main: "#3A6351",
+      light: "#F2EDD7",
       dark: "#393232", 
       
     },
