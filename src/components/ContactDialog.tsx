@@ -13,7 +13,7 @@ export default function ContactDialog() {
         <DialogContentText id="contact-dialog-description">
           You can talk to us via email and/or check our repository in github.
           <p>
-          <Typography variant="subtitle2" gutterBottom><a href="mailto:contac@fuzue.tech">contact@fuzue.tech</a></Typography>
+          <Typography variant="subtitle2" gutterBottom><a href="mailto:contact@fuzue.tech">contact@fuzue.tech</a></Typography>
           <Link underline="hover" href="https://github.com/fuzue/seasonalfood" target="_blank"> <Typography variant="subtitle2" gutterBottom>Github</Typography></Link>
           </p>
         </DialogContentText>
