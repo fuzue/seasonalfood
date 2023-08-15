@@ -1,6 +1,6 @@
 import type { FoodList } from "../types/food";
 import Item from "./Item";
-import { Box, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import { FunctionComponent } from "react";
 
 interface RenderFoodProps {
@@ -14,15 +14,13 @@ interface RenderFoodProps {
 //render the grid of foods
 const RenderFoods:FunctionComponent<RenderFoodProps> = (props:RenderFoodProps) => {
   const foodList = props.foodList
-  const foodItems = foodList.map((item, key) => {
+  const foodItems = foodList.map((item ) => {
     return (
-      <Box sx={{mb: 1, mx: '5px', display: 'flex', flexGrow: 1, justifyContent: "center"}} key={key}>
-        <Item {...item} />
-      </Box>
+      <Item {...item} />
     );
   });
   return (
-    <Stack direction="row" flexWrap="wrap">
+    <Stack direction="row" flexWrap="wrap" justifyContent="space-between" gap={1.5}>
       {foodItems}
     </Stack>
   );

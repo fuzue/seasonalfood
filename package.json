@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build-ghpages": "tsc && vite build --base=/seasonfood/ --outDir _site",
+    "build-ghpages": "tsc && vite build --base=/seasonalfood/ --outDir _site",
     "build-app": "tsc && vite build --mode app && npx cap sync",
     "run-app-android": "npx cap open android",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
