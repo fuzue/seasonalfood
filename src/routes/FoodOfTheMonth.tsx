@@ -42,7 +42,6 @@ export default function FoodOfTheMonth() {
     if (item.season[monthNum] === true) monthFood.push(item);
   });
 
-
   //filters the fruits and vegetables
   const filterFoodType = (monthFood: FoodList, foodCategory: FoodCategory) =>
     monthFood.filter((item) => item.category === foodCategory);
