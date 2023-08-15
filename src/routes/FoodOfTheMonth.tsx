@@ -1,6 +1,10 @@
 import type { FoodList, FoodCategory, FoodObject } from "../types/food";
+import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { FoodDBContext } from "../contexts/FoodDB";
+import RenderFoods from "../components/RenderFoods";
 import {
   Box,
   Tab,
@@ -12,14 +16,9 @@ import {
   Stack,
 } from "@mui/material";
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
-import RenderFoods from "../components/RenderFoods";
-import { useTranslation } from "react-i18next";
-import { FoodDBContext } from "../contexts/FoodDB"
-import React from "react"
-
 
 export default function FoodOfTheMonth() {
-  const [food, _] = React.useContext(FoodDBContext)
+  const [food, _] = React.useContext(FoodDBContext);
   const { selectedMonthNum } = useParams();
   const { t } = useTranslation();
   const monthNum = Number(selectedMonthNum) - 1;
@@ -27,7 +26,6 @@ export default function FoodOfTheMonth() {
     Fruits: [],
     Veggies: [],
   };
-
 
   //month change arrows function
   const navigate = useNavigate();
@@ -41,7 +39,6 @@ export default function FoodOfTheMonth() {
   food.forEach((item) => {
     if (item.season[monthNum] === true) monthFood.push(item);
   });
-
 
   //filters the fruits and vegetables
   const filterFoodType = (monthFood: FoodList, foodCategory: FoodCategory) =>
@@ -64,38 +61,50 @@ export default function FoodOfTheMonth() {
 
   //styled MUI arrows
   const ArrowButton = styled(Link)(({ theme }) => ({
-    color: alpha(theme.palette.common.black, 0.75),
+    color: alpha(theme.palette.primary.light, 0.75),
     "&:hover": {
-      color: alpha(theme.palette.common.black, 0.95),
+      color: alpha(theme.palette.primary.light, 0.95),
     },
-    marginLeft: theme.spacing(1),
+    display: "flex",
+    alignItems: "center",
+    margin: theme.spacing(1),
     width: "auto",
   }));
 
+  const ShadowBox = styled(Stack)(({ theme }) => ({
+    boxShadow: `0 2px 4px ${theme.palette.secondary}`,
+  }));
+
   return (
-    <Box>
-      <Stack direction="row" justifyContent="space-between" sx={{ mt: 2 }}>
+    <Stack height="100%">
+      <ShadowBox
+        direction="row"
+        justifyContent="space-between"
+        bgcolor="secondary.main"
+        color="primary.light"
+        boxShadow="0 2px 4px #332323"
+      >
         <ArrowButton to={`/month/${prevMonth + 1}`}>
           <ArrowLeft />
         </ArrowButton>
-        <div className="month-title">
-          <Typography variant="h6">{t(`month_${monthNum}`)}</Typography>
-        </div>
+        <Typography variant="h6" display="flex" alignItems="center">
+          {t(`month_${monthNum}`)}
+        </Typography>
         <ArrowButton to={`/month/${nextMonth + 1}`}>
           <ArrowRight />
         </ArrowButton>
-      </Stack>
+      </ShadowBox>
       <Tabs
         value={foodType}
         onChange={(_, value) => handleChange(value)}
         variant="fullWidth"
-        sx={{ fontWeight: 700}}
+        sx={{ fontWeight: 700, mt: 1 }}
         aria-label="tabs for the selection of fruits, vegetables or others"
       >
         <Tab
           label={
             <span>
-              <Chip label={num_fruits} sx={{ mr: 1, }} size="small" />
+              <Chip label={num_fruits} sx={{ mr: 1 }} size="small" />
               {t("FoodOfTheMonth_fruitsTabText")}
             </span>
           }
@@ -111,10 +120,9 @@ export default function FoodOfTheMonth() {
           value="Veggies"
         />
       </Tabs>
-      <Box m={1}>
-      <RenderFoods foodList={filteredFood[foodType]} />
+      <Box flexGrow={1} my={2} overflow="auto">
+        <RenderFoods foodList={filteredFood[foodType]} />
       </Box>
-
-    </Box>
+    </Stack>
   );
 }
