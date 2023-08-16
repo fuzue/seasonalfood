@@ -36,7 +36,8 @@ function SearchResult(props: Props) {
 
   return (
     <Dialog
-      fullScreen
+      fullWidth={true}
+      maxWidth="md"
       open={ifSearched}
       onClose={closeModal}
       aria-labelledby="search results"
@@ -54,25 +55,26 @@ function SearchResult(props: Props) {
           <Close />
         </IconButton>
       </Stack>
-      {searchResults.length === 0 ? (
-        <Box sx={{ p: 2 }}>
-          <Typography variant="h6">ITEM NOT FOUND</Typography>
-        </Box>
-      ) : (
-        <Stack
-          py={4}
-          flexGrow={1}
-          direction="row"
-          flexWrap="wrap"
-          justifyContent="space-between"
-          gap={1.5}
-          maxWidth={1024}
-          width="100%"
-          mx="auto"
-        >
-          {foodItems}
-        </Stack>
-      )}
+      <Box p={2}>
+        {searchResults.length === 0 ? (
+          <Box sx={{ p: 2 }}>
+            <Typography variant="h6">ITEM NOT FOUND</Typography>
+          </Box>
+        ) : (
+          <Stack
+            flexGrow={1}
+            direction="row"
+            flexWrap="wrap"
+            justifyContent="space-between"
+            gap={1.5}
+            maxWidth={1024}
+            width="100%"
+            mx="auto"
+          >
+            {foodItems}
+          </Stack>
+        )}
+      </Box>
     </Dialog>
   );
 }
