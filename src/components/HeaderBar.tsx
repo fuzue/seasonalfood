@@ -96,6 +96,9 @@ export default function HeaderBar(props: Props) {
     "&:hover": {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
+    "&:focus": {
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
     marginLeft: "auto",
     width: "auto",
   }));
