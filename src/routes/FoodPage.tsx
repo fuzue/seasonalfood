@@ -55,13 +55,19 @@ export default function FoodPage() {
     }
   };
 
-  const GridBox = styled(Box)(() => ({
-    width: "24%",
+  const GridBox = styled(Box)(({ theme }) => ({
+    width: 80,
+    padding: 10,
     aspectRatio: 2,
-    borderRadius: ".25em",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    fontFamily: "Sans",
+    [theme.breakpoints.up('md')]: {
+      width: 200,
+      fontSize: '1.125rem',
+      fontWeight: '400'
+    },
   }));
 
   const ImgBox = styled(Box)(() => ({
@@ -71,18 +77,17 @@ export default function FoodPage() {
     minWidth: 100,
     aspectRatio: 1,
     mx: "0.5em",
-
-  }));
+   }));
 
   const renderMonths = () => {
     return months.map((month) => {
       let userNumber = Number(month) + 1;
       return (
-        <GridBox sx={{ ...monthColor(month), mb: 1 }}>
           <Link to={`/month/${userNumber}`}>
-            <Typography>{t(`month_${month}`)}</Typography>
+            <GridBox sx={{ ...monthColor(month), m: 1 }}>
+              <div >{t(`month_${month}`)}</div>
+            </GridBox>
           </Link>
-        </GridBox>
       );
     });
   };
@@ -125,12 +130,11 @@ export default function FoodPage() {
         </Stack>
       </Stack>
       <Typography
-        variant="h6"
+        variant="h5"
         textAlign="center"
         mt={3}
         sx={{ fontWeight: 700 }}
         color="secondary.dark"
-        
       >
         {t("FoodPage_monthsInSeason")}
       </Typography>
