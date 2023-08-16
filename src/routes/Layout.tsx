@@ -48,12 +48,14 @@ const theme = createTheme({
 
 function Layout({ food }: { food: FoodList }) {
   //search bar code
+  const [currentSearch, setCurrentSearch] = useState('');
   const [ifSearched, setIfSearched] = useState(false);
   const [searchResults, setSearchResults] = useState([] as FoodList);
   const closeModal = () => setIfSearched(false);
 
   const onSearch = (query: string, food: FoodList) => {
     if (query != "") {
+      setCurrentSearch(query)
       setIfSearched(true);
       setSearchResults(food);
     }
@@ -87,6 +89,7 @@ function Layout({ food }: { food: FoodList }) {
         />
         {ifSearched ? (
           <SearchResult
+            currentSearch={currentSearch}
             searchResults={searchResults}
             ifSearched={ifSearched}
             closeModal={closeModal}
