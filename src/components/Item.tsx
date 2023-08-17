@@ -1,37 +1,50 @@
-import type { FoodObject } from "../types/food"
+import type { FoodObject } from "../types/food";
 
 import { Link } from "react-router-dom";
-import { Box, Typography, styled } from "@mui/material";
+import { Box, Stack, Typography, styled } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
-
-const ImgBox = styled(Box)(({ theme }) => ({
+const ImgBox = styled(Stack)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
-  width: "6em",
+  width: "100%",
+  aspectRatio: 1,
   boxShadow: "3px 4px 8px #888888",
-  textAlign: "center",
-  backgroundColor:"#fefefe",
-  [theme.breakpoints.down("xs")]: {
-    width: "115px",
-  },
+  overflow: "clip",
+  color: theme.palette.primary.light,
+  backgroundColor: theme.palette.primary.main, 
+  
 }));
 
 function Item(props: FoodObject) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const image = props.image.toLowerCase();
   return (
-    <Link to={`/foodpage/${props.description[0].slug}`}>
-      <ImgBox>
-        <img
-          className="food-image"
-          src={`../images/${image}.png`}
-          alt={`image of ${image}`}
-        />
-        <Typography sx={{ paddingBottom: "0.25em" }}>
-          {t(props.description[0].name)}
-        </Typography>
-      </ImgBox>
-    </Link>
+    <Box
+      sx={{ flexGrow: 1, width: "100%", maxWidth: "30%", minWidth: 90 }}
+    >
+      <Link to={`/foodpage/${props.description[0].slug}`}>
+        <ImgBox>
+          <Box position="relative" flexGrow={1}>
+            <img
+              className="food-image"
+              src={`../images/${image}.png`}
+              alt={`image of ${image}`}
+            />
+          </Box>
+          <Box position="relative" height="20%" sx={{ textAlign: 'center'}}>
+            <Typography
+              
+              top={0}
+              fontSize="max(1rem, min(4.5vw, 3rem))"
+              fontWeight={400}
+              sx={{ p: "0.25em", transform: "translateY(-20%)" }}
+            >
+              {t(props.description[0].name)}
+            </Typography>
+          </Box>
+        </ImgBox>
+      </Link>
+    </Box>
   );
 }
 
