@@ -12,13 +12,11 @@ import {
   Drawer,
   ThemeProvider,
   Stack,
-  Typography,
   styled,
   alpha,
 } from "@mui/material";
 import SideBarDialog from "../components/SideBarDialog";
-import { ArrowLeft, ArrowRight } from "@mui/icons-material";
-import { t } from "i18next";
+import MonthBar from "../components/MonthBar";
 
 //BASIC MUI COLORS AND BREAKPOINTS
 const theme = createTheme({
@@ -52,8 +50,6 @@ const theme = createTheme({
 });
 
 function Layout({ food }: { food: FoodList }) {
-  const { selectedMonthNum } = useParams();
-  const monthNum = Number(selectedMonthNum) - 1;
 
   //search bar code
   const [ifSearched, setIfSearched] = useState(false);
@@ -81,26 +77,6 @@ function Layout({ food }: { food: FoodList }) {
     setDialogType(itemClickedName);
   };
 
-    //variables to change month when pressing the arrows
-    const prevMonth = monthNum != 0 ? monthNum - 1 : 11;
-    const nextMonth = monthNum != 11 ? monthNum + 1 : 0;
-
-    //styled MUI arrows
-    const ArrowButton = styled(Link)(({ theme }) => ({
-      color: alpha(theme.palette.primary.light, 0.75),
-      "&:hover": {
-        color: alpha(theme.palette.primary.light, 0.95),
-      },
-      display: "flex",
-      alignItems: "center",
-      margin: theme.spacing(1),
-      width: "auto",
-    }));
-
-  const ShadowBox = styled(Stack)(({ theme }) => ({
-    boxShadow: `0 2px 4px ${theme.palette.secondary}`,
-  }));
-
   return (
     <ThemeProvider theme={theme}>
       <Drawer open={state} onClick={toggleDrawer}>
@@ -113,26 +89,7 @@ function Layout({ food }: { food: FoodList }) {
           food={food}
           ifSearched={ifSearched}
         />
-        <ShadowBox
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
-          bgcolor="secondary.main"
-          color="primary.light"
-          boxShadow="0 2px 4px #332323"
-        >
-          <ArrowButton to={`/month/${prevMonth + 1}`}>
-            <ArrowLeft />
-          </ArrowButton>
-          <Link to={`/month/${selectedMonthNum}`}>
-            <Typography variant="h6" display="flex" alignItems="center">
-              {t(`month_${monthNum}`)}
-            </Typography>
-          </Link>
-          <ArrowButton to={`/month/${nextMonth + 1}`}>
-            <ArrowRight />
-          </ArrowButton>
-        </ShadowBox>
+        <MonthBar />
         {ifSearched ? (
           <SearchResult
             searchResults={searchResults}

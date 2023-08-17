@@ -1,6 +1,6 @@
 import type { FoodObject } from "../types/food";
 
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Box, Stack, Typography, styled } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
@@ -17,12 +17,11 @@ const ImgBox = styled(Stack)(({ theme }) => ({
 function Item(props: FoodObject) {
   const { t } = useTranslation();
   const image = props.image.toLowerCase();
-  const { selectedMonthNum } = useParams();
   return (
     <Box
       sx={{ flexGrow: 1, width: "100%", maxWidth: "30%", minWidth: 90 }}
     >
-      <Link to={`/${props.description[0].slug}/${selectedMonthNum}`}>
+      <Link to={`/${props.description[0].slug}`}>
         <ImgBox>
           <Box position="relative" flexGrow={1}>
             <img

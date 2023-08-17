@@ -28,7 +28,7 @@ export default function App() {
                 element={<Navigate to={`/month/${currentMonth}`} replace />}
               />
               <Route
-                path="/:id/:selectedMonthNum"
+                path="/:id"
                 element={<FoodPage key="foodpage"/>}
               />
               <Route
