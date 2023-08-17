@@ -21,10 +21,7 @@ Source of data for fruits and vegetables from [Slow Food Italy](https://www.slow
 
 <!-- Source for mushrooms from [Greenme](https://www.greenme.it/salute-e-alimentazione/mangiare-sostenibile/funghi-stagionalita/) -->
 
-This is a simple app to show the current fruits and vegetables in different months in Italy.
-In the future we expect to add other countries as soon as we go data for that.
-
-![season-fruit](https://github.com/fuzue/seasonfood/assets/272892/7956b59e-074a-4a27-ba7c-3f1d00c8897c)
+![season-fruit](assets/print-1.jpg)
 
 The project is written in React/Typescript using [MUI](https://mui.com/) library for the UI. The Android app is built using [Capacitor](https://capacitorjs.com/).
 
@@ -45,7 +42,3 @@ First you do need to have Android SDK and Android Studio installed. After that y
 
 1. npm run build-app
 2. ANDROID_SDK=the-path-top-android-sdk CAPACITOR_ANDROID_STUDIO_PATH=the-path-to-android-studio/bin/studio.sh npm run run-app-android
-
-
-
-
