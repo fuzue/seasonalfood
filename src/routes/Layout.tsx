@@ -1,5 +1,5 @@
 import type { FoodList } from "../types/food";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import HeaderBar from "../components/HeaderBar";
 import SearchResult from "../components/SearchResult";
@@ -11,10 +11,8 @@ import {
   Box,
   Drawer,
   ThemeProvider,
-  Stack,
-  styled,
-  alpha,
-} from "@mui/material";
+  Stack
+  } from "@mui/material";
 import SideBarDialog from "../components/SideBarDialog";
 import MonthBar from "../components/MonthBar";
 
