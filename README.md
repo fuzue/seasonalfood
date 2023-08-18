@@ -18,7 +18,7 @@ Also in this initial release we have a web version and an Android app, also avai
 * 📊 Create new ways of visualizing the food in season information, with full year diagrams.
 * 🍇 🍉 🍑 🥝 🍒 Make it possible to select a group of fruits and vegetables and see all of them in a calendar.
 * 🔍 Add synonyms or variant names. Some fruits and vegetables have more than one name, depending of the country's region.
-*🛢Create a public dataset with all the information that we are gathering.
+* 🛢Create a public dataset with all the information that we are gathering.
 * 🍎 Release IOS version.
 * Write it in [Svelte](https://svelte.dev/)!
 
