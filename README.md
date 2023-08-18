@@ -1,11 +1,13 @@
 ## About the app
-This project was developed to address a genuine challenge: determining the availability of fruits and vegetables in a new country or region. Despite searching for solutions and information, I           couldn't find anything intuitive or capable of meeting my needs.
+This project was developed to address a genuine challenge: determining the availability of fruits and vegetables in a new country or region. Despite searching for solutions and information, we couldn't find anything intuitive or capable of meeting my needs.
        
 The concept behind this project was to create a simple and scalable solution, making it easy to modify and expand the database for different countries or regions. The primary objective of this app is to promote the consumption of locally grown produce, empower small-scale farmers, and ultimately reduce our contribution to global warming.
 
+The project is written in React/Typescript, using [MUI](https://mui.com/) library for the UI. The Android app is built using [Capacitor](https://capacitorjs.com/).
+
 ## First Release (August 2023)
 
-This first release has only data for one co, for now, the data is **only for Italy**. 
+This first release has only data for one country, for now, the data is **only for Italy**. 
 
 Also in this initial release we have a web version and an Android app, also available in English and Italian. 
 
@@ -27,7 +29,6 @@ Source of data for fruits and vegetables from [Slow Food Italy](https://www.slow
 
 ![season-fruit](assets/print-1.jpg)
 
-The project is written in React/Typescript using [MUI](https://mui.com/) library for the UI. The Android app is built using [Capacitor](https://capacitorjs.com/).
 
 # How to use
 
