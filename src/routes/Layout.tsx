@@ -11,9 +11,10 @@ import {
   Box,
   Drawer,
   ThemeProvider,
-  Stack,
-} from "@mui/material";
+  Stack
+  } from "@mui/material";
 import SideBarDialog from "../components/SideBarDialog";
+import MonthBar from "../components/MonthBar";
 
 //BASIC MUI COLORS AND BREAKPOINTS
 const theme = createTheme({
@@ -47,6 +48,7 @@ const theme = createTheme({
 });
 
 function Layout({ food }: { food: FoodList }) {
+
   //search bar code
   const [currentSearch, setCurrentSearch] = useState('');
   const [ifSearched, setIfSearched] = useState(false);
@@ -87,6 +89,7 @@ function Layout({ food }: { food: FoodList }) {
           food={food}
           ifSearched={ifSearched}
         />
+        <MonthBar />
         {ifSearched ? (
           <SearchResult
             currentSearch={currentSearch}
