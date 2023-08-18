@@ -12,6 +12,8 @@ import {
   Toolbar,
   IconButton,
   InputBase,
+  Typography,
+  Select,
 } from "@mui/material";
 
 type Props = {
@@ -46,14 +48,14 @@ export default function HeaderBar(props: Props) {
     const options = {
       threshold: 0.3,
       keys: [
-        { name: 'name-en', getFn: (food:FoodObject) => food.description[0].name },
-        { name: 'name-it', getFn: (food:FoodObject) => food.description[1].name }
+        { name: 'name-en', getFn: (food: FoodObject) => food.description[0].name },
+        { name: 'name-it', getFn: (food: FoodObject) => food.description[1].name }
       ]
     }
 
     const fuse = new Fuse(food, options)
     const searchText = query.current.value.trim().toLowerCase()
-    const searchLanguage:{[lang:string]:string} = {}
+    const searchLanguage: { [lang: string]: string } = {}
     searchLanguage["name-" + i18next.language] = searchText
 
     return fuse.search(searchLanguage).map((i) => i.item)
@@ -127,16 +129,14 @@ export default function HeaderBar(props: Props) {
     },
   }));
 
-
-
   return (
-    <AppBar position="static" sx={{mb: 1, backgroundColor:"primary.dark"}}>
+    <AppBar position="static" sx={{ mb: 1, backgroundColor: "primary.dark" }}>
       <Toolbar>
         {leftButton()}
         <SearchBar>
           <SearchIconWrapper>
             <IconButton
-              sx={{m: 0}}
+              sx={{ m: 0 }}
               size="large"
               edge="start"
               color="inherit"
@@ -158,3 +158,4 @@ export default function HeaderBar(props: Props) {
     </AppBar>
   );
 }
+
