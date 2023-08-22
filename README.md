@@ -1,10 +1,11 @@
 ## About the app
-This project was developed to address a genuine challenge: determining the availability of fruits and vegetables in a new country or region. Despite searching for solutions and information, I           couldn't find anything intuitive or capable of meeting my needs.
+This project was developed to address a genuine challenge: determining the availability of fruits and vegetables in a new country or region. Despite searching for solutions and information, we couldn't find anything intuitive or capable of meeting my needs.
        
 The concept behind this project was to create a simple and scalable solution, making it easy to modify and expand the database for different countries or regions. The primary objective of this app is to promote the consumption of locally grown produce, empower small-scale farmers, and ultimately reduce our contribution to global warming.
 
-## First Release (August 2023)
+The project is written in React/Typescript, using [MUI](https://mui.com/) library for the UI. The Android app is built using [Capacitor](https://capacitorjs.com/).
 
+## First Release (August 2023)
 This first release has dat for **Italy only** 🇮🇹. Also in this initial release we have a web version and an Android app, available in English and Italian. 
 
 ## Roadmap
@@ -14,7 +15,7 @@ This first release has dat for **Italy only** 🇮🇹. Also in this initial rel
 * 📊 Create new ways of visualizing the food in season information, with full year diagrams.
 * 🍇 🍉 🍑 🥝 🍒 Make it possible to select a group of fruits and vegetables and see all of them in a calendar.
 * 🔍 Add synonyms or variant names. Some fruits and vegetables have more than one name, depending of the country's region.
-*🛢Create a public dataset with all the information that we are gathering.
+* 🛢Create a public dataset with all the information that we are gathering.
 * 🍎 Release IOS version.
 * Write it in [Svelte](https://svelte.dev/)!
 
@@ -25,7 +26,6 @@ Source of data for fruits and vegetables from [Slow Food Italy](https://www.slow
 
 ![season-fruit](assets/print-1.jpg)
 
-The project is written in React/Typescript using [MUI](https://mui.com/) library for the UI. The Android app is built using [Capacitor](https://capacitorjs.com/).
 
 # How to use
 

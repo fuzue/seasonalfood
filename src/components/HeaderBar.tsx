@@ -1,10 +1,9 @@
 import type { FoodList, FoodObject } from "../types/food";
 import Fuse from 'fuse.js'
 import { useRef, useEffect } from "react"
-import { useNavigate, useLocation } from "react-router-dom";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
-import { ArrowBackIosNew, Menu, Search } from "@mui/icons-material";
+import { Menu, Search } from "@mui/icons-material";
 import {
   AppBar,
   styled,
@@ -61,23 +60,7 @@ export default function HeaderBar(props: Props) {
     return fuse.search(searchLanguage).map((i) => i.item)
   };
 
-  const navigate = useNavigate();
-  const location = useLocation();
-
   function leftButton() {
-    if (location.pathname.split("/")[1] === "foodpage") {
-      return (
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="return"
-          onClick={() => navigate(-1)}
-        >
-          <ArrowBackIosNew />
-        </IconButton>
-      );
-    }
     return (
       <IconButton
         size="large"
