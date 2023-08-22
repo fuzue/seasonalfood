@@ -99,7 +99,7 @@ export default function FoodPage() {
         <ImgBox borderRadius={1}>
           <img
             className="food-image"
-            src={`../images/${image}.png`}
+            src={`${import.meta.env.VITE_BASE_URL}images/${image}.png`}
             alt={`photo of ${image}`}
           />
         </ImgBox>

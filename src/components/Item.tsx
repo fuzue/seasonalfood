@@ -26,7 +26,7 @@ function Item(props: FoodObject) {
           <Box position="relative" flexGrow={1}>
             <img
               className="food-image"
-              src={`../images/${image}.png`}
+              src={`${import.meta.env.VITE_BASE_URL}images/${image}.png`}
               alt={`image of ${image}`}
             />
           </Box>
