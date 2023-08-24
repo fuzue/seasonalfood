@@ -103,14 +103,9 @@ export default function FoodPage() {
             alt={`photo of ${image}`}
           />
         </ImgBox>
-        <Stack px={2}>
-          <Typography
-            color={ seasonStatus === "FoodPage_inSeasonText" ? "primary.main" : "secondary.main"}>
-            {t(seasonStatus)}
-          </Typography>
+        <Stack px={2} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
           <Typography
             variant="h4"
-            mt="auto"
             sx={{ fontWeight: 700 }}
             color="secondary.main"
           >
