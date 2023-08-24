@@ -6,10 +6,7 @@ The concept behind this project was to create a simple and scalable solution, ma
 The project is written in React/Typescript, using [MUI](https://mui.com/) library for the UI. The Android app is built using [Capacitor](https://capacitorjs.com/).
 
 ## First Release (August 2023)
-
-This first release has only data for one country, for now, the data is **only for Italy**. 
-
-Also in this initial release we have a web version and an Android app, also available in English and Italian. 
+This first release has dat for **Italy only** 🇮🇹. Also in this initial release we have a web version and an Android app, available in English and Italian. 
 
 ## Roadmap
 

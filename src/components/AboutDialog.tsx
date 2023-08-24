@@ -1,5 +1,5 @@
 
-import { DialogTitle, DialogContent, DialogContentText, }
+import { DialogTitle, DialogContent, DialogContentText, Typography }
   from "@mui/material"
 
 //dialog box that opens with each element clicked
@@ -26,6 +26,9 @@ export default function AboutDialog() {
           small-scale farmers, and ultimately reduce our contribution to global
           warming.
           </p>
+          <Typography sx={{fontWeight: 600}}>
+            At the moment it is only available for Italian products.
+          </Typography>
         </DialogContentText>
       </DialogContent>
     </>
