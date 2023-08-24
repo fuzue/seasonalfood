@@ -11,9 +11,7 @@ import {
   alpha,
   Toolbar,
   IconButton,
-  InputBase,
-  Typography,
-  Select,
+  InputBase
 } from "@mui/material";
 
 type Props = {
