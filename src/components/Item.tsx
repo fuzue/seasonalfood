@@ -11,8 +11,7 @@ const ImgBox = styled(Stack)(({ theme }) => ({
   boxShadow: "3px 4px 8px #888888",
   overflow: "clip",
   color: theme.palette.primary.light,
-  backgroundColor: theme.palette.primary.main, 
-  
+  backgroundColor: theme.palette.primary.main,
 }));
 
 function Item(props: FoodObject) {
@@ -22,7 +21,7 @@ function Item(props: FoodObject) {
     <Box
       sx={{ flexGrow: 1, width: "100%", maxWidth: "30%", minWidth: 90 }}
     >
-      <Link to={`/foodpage/${props.description[0].slug}`}>
+      <Link to={`/${props.description[0].slug}`}>
         <ImgBox>
           <Box position="relative" flexGrow={1}>
             <img
@@ -33,7 +32,6 @@ function Item(props: FoodObject) {
           </Box>
           <Box position="relative" height="20%" sx={{ textAlign: 'center'}}>
             <Typography
-              
               top={0}
               fontSize="max(1rem, min(4.5vw, 3rem))"
               fontWeight={400}

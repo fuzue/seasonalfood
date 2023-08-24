@@ -55,16 +55,14 @@ export default function FoodPage() {
     }
   };
 
-  const GridBox = styled(Box)(({ theme }) => ({
-    width: 80,
-    padding: 10,
-    aspectRatio: 2,
+  const GridBox = styled(Link)(({ theme }) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontFamily: "Sans",
+    flexGrow: 1,
+    padding: 2,
+    width: '25%',
     [theme.breakpoints.up('md')]: {
-      width: 200,
       fontSize: '1.125rem',
       fontWeight: '400'
     },
@@ -83,23 +81,22 @@ export default function FoodPage() {
     return months.map((month) => {
       let userNumber = Number(month) + 1;
       return (
-          <Link to={`/month/${userNumber}`}>
-            <GridBox sx={{ ...monthColor(month), m: 1 }}>
-              <div >{t(`month_${month}`)}</div>
-            </GridBox>
-          </Link>
+        <GridBox key={month} sx={{ ...monthColor(month), m: 1 }} to={`/month/${userNumber}`}>
+          <Typography>{t(`month_${month}`)}</Typography>
+        </GridBox>
       );
     });
   };
 
   return (
     <Stack
-      justifyContent="space-between"
       width="100%"
+      height="100%"
       overflow="auto"
+      my={1.5}
     >
       <Stack direction="row" width="100%">
-        <ImgBox>
+        <ImgBox borderRadius={1}>
           <img
             className="food-image"
             src={`../images/${image}.png`}
@@ -126,12 +123,10 @@ export default function FoodPage() {
             color={seasonStatus === "FoodPage_inSeasonText" ? "secondary.main" : "primary.main"}>
             {t(seasonStatus)}
           </Typography>
-         
         </Stack>
       </Stack>
       <Typography
         variant="h5"
-        textAlign="center"
         mt={3}
         sx={{ fontWeight: 700 }}
         color="secondary.dark"

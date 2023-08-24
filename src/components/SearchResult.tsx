@@ -13,6 +13,7 @@ import { TransitionProps } from "@mui/material/transitions";
 import { Close } from "@mui/icons-material";
 
 type Props = {
+  currentSearch: string;
   searchResults: FoodList;
   ifSearched: boolean;
   closeModal: () => void;
@@ -28,7 +29,7 @@ const Transition = forwardRef(function Transition(
 });
 
 function SearchResult(props: Props) {
-  const { searchResults, ifSearched, closeModal } = props;
+  const { currentSearch, searchResults, ifSearched, closeModal } = props;
 
   const foodItems = searchResults.map((item, key) => {
     return <Item key={key} {...item} />;
@@ -44,9 +45,10 @@ function SearchResult(props: Props) {
       aria-describedby="the results of your search are shown here"
       TransitionComponent={Transition}
     >
-      <Stack direction="row">
+      <Stack direction="row" alignItems="center" p={2}>
+        <Typography variant="h5" component="div">Search: {currentSearch}</Typography>
         <IconButton
-          sx={{ m: 2, ml: "auto" }}
+          sx={{ml: "auto" }}
           edge="start"
           color="inherit"
           onClick={closeModal}
