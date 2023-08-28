@@ -29,7 +29,7 @@ Source of data for fruits and vegetables from [Slow Food Italy](https://www.slow
 
 # How to use
 
-There is a online web version[here](https://fuzue.tech/seasonalfood/). The homepage already shows you the current month and fruits and vegetables of the season in Italy. You can also download a mobile app  in F-Droid or Google Play, and soon it will also be available in Apple store.
+There is a online web version [here](https://fuzue.tech/seasonalfood/). The homepage already shows you the current month and fruits and vegetables of the season in Italy. You can also download a mobile app  in F-Droid or Google Play, and soon it will also be available in Apple store.
 
 ## Contribute
 
