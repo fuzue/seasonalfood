@@ -35,7 +35,7 @@ function Item(props: FoodObject) {
               top={0}
               fontSize="max(1rem, min(4.5vw, 3rem))"
               fontWeight={400}
-              sx={{ p: "0.25em", transform: "translateY(-20%)" }}
+              sx={{ p: "0.25em", transform: "translateY(-20%)", overflow: "hidden", textOverflow: "ellipsis" }}
             >
               {t(props.description[0].name)}
             </Typography>
