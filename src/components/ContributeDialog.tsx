@@ -5,7 +5,7 @@ import { DialogTitle, DialogContent, DialogContentText, Link }
 export default function ContributeDialog() {
   return (
     <>
-      <DialogTitle id="contribute-dialog-title">
+      <DialogTitle id="contribute-dialog-title" color="dark-gray" >
         {"Contribute"}
       </DialogTitle>
       <DialogContent>

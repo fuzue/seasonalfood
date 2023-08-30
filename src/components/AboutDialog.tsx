@@ -10,7 +10,7 @@ export default function AboutDialog() {
         {"About the app"}
       </DialogTitle>
       <DialogContent>
-        <DialogContentText id="about-dialog-description">
+        <DialogContentText id="about-dialog-description" color="dark-gray">
           <p>
           This project was developed to address a genuine challenge:
           determining the availability of fruits and vegetables in a new

@@ -8,7 +8,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 export default function ContactDialog() {
   return (
     <>
-      <DialogTitle id="contact-dialog-title">
+      <DialogTitle id="contact-dialog-title" color="dark-gray">
         {"Contact"}
       </DialogTitle>
       <DialogContent>
