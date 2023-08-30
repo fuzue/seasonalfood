@@ -41,6 +41,7 @@ function SearchResult(props: Props) {
       maxWidth="md"
       open={ifSearched}
       onClose={closeModal}
+      onClick={closeModal}
       aria-labelledby="search results"
       aria-describedby="the results of your search are shown here"
       TransitionComponent={Transition}
@@ -51,7 +52,6 @@ function SearchResult(props: Props) {
           sx={{ml: "auto" }}
           edge="start"
           color="inherit"
-          onClick={closeModal}
           aria-label="close"
         >
           <Close />

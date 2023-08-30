@@ -14,9 +14,9 @@ interface RenderFoodProps {
 //render the grid of foods
 const RenderFoods:FunctionComponent<RenderFoodProps> = (props:RenderFoodProps) => {
   const foodList = props.foodList
-  const foodItems = foodList.map((item ) => {
+  const foodItems = foodList.map((item, key) => {
     return (
-      <Item {...item} />
+      <Item key={key} {...item} />
     );
   });
   return (

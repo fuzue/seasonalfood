@@ -1,16 +1,16 @@
 import type { FoodList, FoodObject } from "../types/food";
-import Fuse from 'fuse.js'
-import { useRef, useEffect } from "react"
+import Fuse from "fuse.js";
+import { useRef, useEffect } from "react";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Menu, Search } from "@mui/icons-material";
 import {
   AppBar,
   styled,
-  alpha,
   Toolbar,
   IconButton,
-  InputBase
+  InputBase,
+  Box,
 } from "@mui/material";
 
 type Props = {
@@ -45,17 +45,23 @@ export default function HeaderBar(props: Props) {
     const options = {
       threshold: 0.3,
       keys: [
-        { name: 'name-en', getFn: (food: FoodObject) => food.description[0].name },
-        { name: 'name-it', getFn: (food: FoodObject) => food.description[1].name }
-      ]
-    }
+        {
+          name: "name-en",
+          getFn: (food: FoodObject) => food.description[0].name,
+        },
+        {
+          name: "name-it",
+          getFn: (food: FoodObject) => food.description[1].name,
+        },
+      ],
+    };
 
-    const fuse = new Fuse(food, options)
-    const searchText = query.current.value.trim().toLowerCase()
-    const searchLanguage: { [lang: string]: string } = {}
-    searchLanguage["name-" + i18next.language] = searchText
+    const fuse = new Fuse(food, options);
+    const searchText = query.current.value.trim().toLowerCase();
+    const searchLanguage: { [lang: string]: string } = {};
+    searchLanguage["name-" + i18next.language] = searchText;
 
-    return fuse.search(searchLanguage).map((i) => i.item)
+    return fuse.search(searchLanguage).map((i) => i.item);
   };
 
   function leftButton() {
@@ -71,20 +77,6 @@ export default function HeaderBar(props: Props) {
       </IconButton>
     );
   }
-
-  const SearchBar = styled("div")(({ theme }) => ({
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    "&:focus": {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginLeft: "auto",
-    width: "auto",
-  }));
 
   const SearchIconWrapper = styled("div")(() => ({
     height: "100%",
@@ -114,7 +106,12 @@ export default function HeaderBar(props: Props) {
     <AppBar position="static" sx={{ mb: 1, backgroundColor: "primary.dark" }}>
       <Toolbar>
         {leftButton()}
-        <SearchBar>
+        <Box
+          position="relative"
+          marginLeft="auto"
+          borderRadius=".5rem"
+          bgcolor="rgba(255,255,255,.1)"
+        >
           <SearchIconWrapper>
             <IconButton
               sx={{ m: 0 }}
@@ -128,15 +125,15 @@ export default function HeaderBar(props: Props) {
           </SearchIconWrapper>
           <form onSubmit={(e) => handleSubmit(e)}>
             <StyledInputBase
+              key="searchInput"
               placeholder={t("Header_searchBar")}
               inputProps={{ "aria-label": "search" }}
               inputRef={query}
               id="search-bar"
             />
           </form>
-        </SearchBar>
+        </Box>
       </Toolbar>
     </AppBar>
   );
 }
-
