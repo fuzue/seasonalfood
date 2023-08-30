@@ -8,11 +8,11 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 export default function ContactDialog() {
   return (
     <>
-      <DialogTitle id="contact-dialog-title" color="dark-gray">
+      <DialogTitle id="contact-dialog-title">
         {"Contact"}
       </DialogTitle>
       <DialogContent>
-        <DialogContentText id="contact-dialog-description" >
+        <DialogContentText id="contact-dialog-description"  color="dark-gray" >
           Contact us via email, visit 
             <Link underline="hover" color="inherit" href="https://seasonalfood.fuzue.tech/" target="_blank"> our website</Link> 
             &nbsp;or check out <Link underline="hover" color="inherit" href="https://github.com/fuzue/seasonalfood"> our repository in github.</Link>
