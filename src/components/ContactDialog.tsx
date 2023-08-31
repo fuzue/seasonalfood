@@ -1,5 +1,5 @@
 
-import { DialogTitle, DialogContent, DialogContentText, Link, Typography, Stack, Box }
+import { DialogTitle, DialogContent, DialogContentText, Link, Box }
   from "@mui/material";
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import GitHubIcon from '@mui/icons-material/GitHub';
