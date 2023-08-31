@@ -11,7 +11,7 @@ export default function ContributeDialog() {
         {t("ContributeDialog_title")}
       </DialogTitle>
       <DialogContent >
-        <DialogContentText id="contribute-dialog-description">
+        <DialogContentText id="contribute-dialog-description" color="dark-gray">
           {t("ContributeDialog_desc")}
           <p>{t("ContributeDialog_forthis")}&nbsp;
             <Link underline="hover" href="https://github.com/fuzue/seasonfood" target="_blank">
