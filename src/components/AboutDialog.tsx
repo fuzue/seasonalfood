@@ -1,5 +1,5 @@
 
-import { DialogTitle, DialogContent, DialogContentText, Typography }
+import { DialogTitle, DialogContent, DialogContentText, Typography, Link }
   from "@mui/material"
 
 //dialog box that opens with each element clicked
@@ -10,7 +10,7 @@ export default function AboutDialog() {
         {"About the app"}
       </DialogTitle>
       <DialogContent>
-        <DialogContentText id="about-dialog-description">
+        <DialogContentText id="about-dialog-description" color="dark-gray">
           <p>
           This project was developed to address a genuine challenge:
           determining the availability of fruits and vegetables in a new
@@ -26,8 +26,12 @@ export default function AboutDialog() {
           small-scale farmers, and ultimately reduce our contribution to global
           warming.
           </p>
-          <Typography sx={{fontWeight: 600}}>
+          <Typography sx={{fontWeight: 600 }}>
             At the moment it is only available for Italian products.
+          </Typography>
+          <Typography sx={{fontWeight: 800, mt: 3}}>
+            More about us in <Link underline="hover" sx={{ color: "inherit"}} href="https://fuzue.tech" target="_blank">fuzue.tech</Link> 
+            <br /> More about the app <Link underline="hover" sx={{ color: "inherit"}} href="https://seasonalfood.fuzue.tech/" target="_blank" > here</Link> 
           </Typography>
         </DialogContentText>
       </DialogContent>
