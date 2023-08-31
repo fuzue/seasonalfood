@@ -31,7 +31,7 @@ export default function FoodPage() {
     if (selectedFood && selectedFood.season[i] === true) {
       seasonMonths.push(months[i]);
       seasonStatus = "FoodPage_notInSeasonText";
-      if (seasonMonths.includes(months[currentMonth])) {
+      if (seasonMonths.includes(months[currentMonth - 1])) {
         seasonStatus = "FoodPage_inSeasonText";
       }
     }

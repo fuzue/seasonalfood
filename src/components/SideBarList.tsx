@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import SelectLang from "./SelectLang";
 /* MUI IMPORTS */
 import {
@@ -9,6 +10,8 @@ import {
 } from "@mui/material";
 
 export default function SideBarList(props: any) {
+  const { t } = useTranslation();
+
   return (
     <Stack
       height="100%"
@@ -22,28 +25,28 @@ export default function SideBarList(props: any) {
     >
       <ListItem sx={{ my: 1.5 }}>
         <Typography variant="h6" display="block" gutterBottom sx={{ m: 0 }}>
-          SEASONAL FOOD 🇮🇹
+          SEASON FOOD 🇮🇹
         </Typography>
       </ListItem>
       <Divider />
       <ListItem disablePadding>
         <ListItemButton onClick={() => props.handleClickOpen("about")}>
           <Typography variant="button" display="block" gutterBottom>
-            about the app
+            {t("SideBarList_aboutApp")}
           </Typography>
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
         <ListItemButton onClick={() => props.handleClickOpen("contribute")}>
           <Typography variant="button" display="block" gutterBottom>
-            contribute
+            {t("SideBarList_contribute")}
           </Typography>
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
         <ListItemButton onClick={() => props.handleClickOpen("contact")}>
           <Typography variant="button" display="block" gutterBottom>
-            contact us
+            {t("SideBarList_contact")}
           </Typography>
         </ListItemButton>
       </ListItem>
