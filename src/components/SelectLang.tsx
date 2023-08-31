@@ -9,7 +9,8 @@ import {
 import { useTranslation } from "react-i18next";
 
 export default function SelectLang() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
+
 
   const langs = {
     en: { nativeName: "English" },
@@ -18,7 +19,7 @@ export default function SelectLang() {
 
   return (
     <FormControl sx={{ minWidth: "100%" }} size="small">
-      <InputLabel id="demo-select-small-label">Language</InputLabel>
+      <InputLabel id="demo-select-small-label">{t("SelectLang_Text")}</InputLabel>
       <Select
         labelId="demo-select-small-label"
         id="demo-select-small"
