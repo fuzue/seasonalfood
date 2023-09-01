@@ -1,33 +1,24 @@
 
 import { DialogTitle, DialogContent, DialogContentText, Typography, Link }
   from "@mui/material"
+import { useTranslation } from "react-i18next"
 
 //dialog box that opens with each element clicked
 export default function AboutDialog() {
+  const { t } = useTranslation();
   return (
     <>
       <DialogTitle id="about-dialog-title">
-        {"About the app"}
+        {t("AboutDialog_title")}
       </DialogTitle>
       <DialogContent>
         <DialogContentText id="about-dialog-description" color="dark-gray">
-          <p>
-          This project was developed to address a genuine challenge:
-          determining the availability of fruits and vegetables in a new
-          country or region. Despite searching for solutions and information, I
-          couldn't find anything intuitive or capable of meeting my needs.
-          </p>
+          <p>{t("AboutDialog_desc1")}</p>
+          <p>{t("AboutDialog_desc2")}</p>
 
-          <p>
-          The concept behind this project was to create a simple and scalable
-          solution, making it easy to modify and expand the database for
-          different countries or regions. The primary objective of this app is
-          to promote the consumption of locally grown produce, empower
-          small-scale farmers, and ultimately reduce our contribution to global
-          warming.
-          </p>
+          
           <Typography sx={{fontWeight: 600 }}>
-            At the moment it is only available for Italian products.
+          {t("AboutDialog_ItalianDisclaimer")}
           </Typography>
           <Typography sx={{fontWeight: 800, mt: 3}}>
             More about us in <Link underline="hover" sx={{ color: "inherit"}} href="https://fuzue.tech" target="_blank">fuzue.tech</Link> 
