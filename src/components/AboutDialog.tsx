@@ -18,11 +18,12 @@ export default function AboutDialog() {
 
           
           <Typography sx={{fontWeight: 600 }}>
-          {t("AboutDialog_ItalianDisclaimer")}
+          {t("AboutDialog_ItalyDisclaimer")}
           </Typography>
           <Typography sx={{fontWeight: 800, mt: 3}}>
-            More about us in <Link underline="hover" sx={{ color: "inherit"}} href="https://fuzue.tech" target="_blank">fuzue.tech</Link> 
-            <br /> More about the app <Link underline="hover" sx={{ color: "inherit"}} href="https://seasonalfood.fuzue.tech/" target="_blank" > here</Link> 
+            {t("AboutDialog_aboutus")} <Link underline="hover" sx={{ color: "inherit"}} href="https://fuzue.tech" target="_blank">fuzue.tech</Link> 
+            <br /> 
+            {t("AboutDialog_aboutapp")}More about the app <Link underline="hover" sx={{ color: "inherit"}} href="https://seasonalfood.fuzue.tech/" target="_blank" > here</Link> 
           </Typography>
         </DialogContentText>
       </DialogContent>
