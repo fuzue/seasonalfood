@@ -16,7 +16,7 @@ const MonthBar = () => {
   const ArrowButton = styled(Link)(({ theme }) => ({
     color: alpha(theme.palette.primary.light, 0.75),
     "&:hover": {
-      color: alpha(theme.palette.primary.light, 0.95),
+      color: alpha(theme.palette.primary.light, 1),
     },
     display: "flex",
     alignItems: "center",
@@ -25,7 +25,7 @@ const MonthBar = () => {
   }));
 
   const ShadowBox = styled(Stack)(({ theme }) => ({
-    boxShadow: `0 2px 4px ${theme.palette.secondary}`,
+    boxShadow: `0 2px 4px ${theme.palette.text.primary}`,
   }));
 
   return (
@@ -33,7 +33,7 @@ const MonthBar = () => {
       direction="row"
       alignItems="center"
       justifyContent="space-between"
-      bgcolor="secondary.main"
+      bgcolor="primary.main"
       color="primary.light"
       boxShadow="0 2px 4px #332323"
     >

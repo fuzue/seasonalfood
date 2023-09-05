@@ -21,11 +21,14 @@ const theme = createTheme({
   palette: {
     text: {
       primary: "#674747", //dark gray
-      secondary: "#f9f3e3", //light cream - bg-color
+      secondary: "rgba(0, 0, 0, 0.28)", //light gray
+
+      
     },
     primary: { // green
       main: "#6fa128", //light green,
-      dark: "#f9f3e3" , 
+      dark: "#f9f3e3",
+      light: "#f9f3e3" //light cream - bg-color
     },
     secondary: { // purple/red 
       main: "#782a33", 

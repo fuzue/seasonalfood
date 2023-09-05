@@ -103,7 +103,7 @@ export default function HeaderBar(props: Props) {
   }));
 
   return (
-    <AppBar position="static" sx={{ mb: 1, backgroundColor: "primary.dark" }}>
+    <AppBar position="static" sx={{ mb: 1, backgroundColor: "secondary.light" }}>
       <Toolbar>
         {leftButton()}
         <Box

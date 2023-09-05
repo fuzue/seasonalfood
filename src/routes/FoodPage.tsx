@@ -42,13 +42,13 @@ export default function FoodPage() {
   const monthColor = (month: string) => {
     if (seasonMonths.includes(month)) {
       return {
-        backgroundColor: "secondary.dark",
+        backgroundColor: "primary.main",
         color: "primary.light",
         boxShadow: `0 2px 4px #888888`,
       };
     } else {
       return {
-        color: "primary.main",
+        color: "secondary.light",
         backgroundColor: "primary.light",
         opacity: ".5"
       };
