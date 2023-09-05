@@ -17,14 +17,14 @@ export default function ContactDialog() {
         <DialogContentText id="contact-dialog-description"  color="dark-gray" >
           {t("ContactDialog_text1")}
             <Link underline="hover" color="inherit" href="https://seasonalfood.fuzue.tech/" target="_blank"> {t("ContactDialog_text2")}</Link> 
-            &nbsp;{t( "ContactDialog_text3")} <Link underline="hover" color="inherit" href="https://github.com/fuzue/seasonalfood"> {t("ContactDialog_text4")}</Link>
+            &nbsp;{t( "ContactDialog_text3")} <Link underline="hover" sx={{fontWeight: 800}} href="https://github.com/fuzue/seasonalfood"> {t("ContactDialog_text4")}</Link>
           <Box sx={{display: 'flex', justifyContent: 'start', mt:2, }}>
             <AlternateEmailIcon sx={{mr:1}} />
-            <Link underline="hover" color="inherit" href="mailto:contact@fuzue.tech">contact@fuzue.tech</Link>
+            <Link underline="hover" sx={{fontWeight: 800}} href="mailto:contact@fuzue.tech">contact@fuzue.tech</Link>
           </Box>
           <Box sx={{display: 'flex', justifyContent: 'start', mt:1}}>
             <GitHubIcon sx={{mr:1}}/>
-            <Link underline="hover" color="inherit" href="https://github.com/fuzue/seasonalfood">GitHub Repo</Link>
+            <Link underline="hover" sx={{fontWeight: 800}}  href="https://github.com/fuzue/seasonalfood">GitHub Repo</Link>
           </Box>
         </DialogContentText>
       </DialogContent>
