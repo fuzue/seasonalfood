@@ -21,9 +21,9 @@ export default function AboutDialog() {
           {t("AboutDialog_ItalyDisclaimer")}
           </Typography>
           <Typography sx={{fontWeight: 800, mt: 3}}>
-            {t("AboutDialog_aboutus")} <Link underline="hover" sx={{ color: "inherit"}} href="https://fuzue.tech" target="_blank">fuzue.tech</Link> 
+            {t("AboutDialog_aboutus")} <Link underline="hover" href="https://fuzue.tech" target="_blank">fuzue.tech</Link> 
             <br /> 
-            {t("AboutDialog_aboutapp")} <Link underline="hover" sx={{ color: "inherit"}} href="https://seasonalfood.fuzue.tech/" target="_blank" > here</Link> 
+            {t("AboutDialog_aboutapp")} <Link underline="hover" href="https://seasonalfood.fuzue.tech/" target="_blank" > here</Link> 
           </Typography>
         </DialogContentText>
       </DialogContent>
