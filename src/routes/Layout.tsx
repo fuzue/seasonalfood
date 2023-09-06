@@ -20,29 +20,21 @@ import MonthBar from "../components/MonthBar";
 const theme = createTheme({
   palette: {
     text: {
-      primary: "#674747",
-      secondary: "#999"
-    },
-    primary: { 
-      main: "#5a175d", //purple
-      light: "#f3ecf1", //cream - bg-color
-      dark: "#67074a", // purple/red
-    },
-    secondary: {
-      main: "#05878a", //blue-green light
-      light: "#074d6790", // blue-green transparent
-    },
+      primary: "#674747", //dark gray
+      secondary: "rgba(0, 0, 0, 0.28)", //light gray
 
-    //OP 1 DE CORES
-    /* primary: { //green
-      main: "#36a859",
-      light: "#f3ecf1", //cream - bg-color
-      dark: "#2c6e49",
+      
     },
-    secondary: {
-      main: "#d55314", //orange
-      light: "#ffc9b9", //pink
-    }, */
+    primary: { // green
+      main: "#6fa128", //light green,
+      dark: "#f9f3e3",
+      light: "#f9f3e3" //light cream - bg-color
+    },
+    secondary: { // purple/red 
+      main: "#782a33", 
+      light: "#ce3045", 
+      
+    },
 
   },
 });

@@ -51,6 +51,8 @@ export default function FoodOfTheMonth() {
     setFoodType(newFoodCategory);
   };
 
+ 
+
   return (
     <Stack height="100%">
       <Tabs
@@ -59,7 +61,7 @@ export default function FoodOfTheMonth() {
         variant="fullWidth"
         sx={{ fontWeight: 700 }}
         aria-label="tabs for the selection of fruits, vegetables or others"
-      >
+      > 
         <Tab
           label={
             <span>
