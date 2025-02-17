@@ -15,6 +15,7 @@ export default function SelectLang() {
   const langs = {
     en: { nativeName: "English" },
     it: { nativeName: "Italiano" },
+    pt: {nativeName: "Português(BR)"}
   } as { [key: string]: { nativeName: string } };
 
   return (
