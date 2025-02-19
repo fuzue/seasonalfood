@@ -11,6 +11,7 @@ import {
   IconButton,
   InputBase,
   Box,
+  Typography
 } from "@mui/material";
 
 type Props = {
@@ -106,12 +107,19 @@ export default function HeaderBar(props: Props) {
     <AppBar position="static" sx={{ mb: 1, backgroundColor: "secondary.light" }}>
       <Toolbar>
         {leftButton()}
+        <Typography 
+      variant="subtitle1" 
+      component="div" 
+      sx={{ flexGrow: 0, marginRight: 2 }}
+    >
+      Season Food
+    </Typography>
         <Box
           position="relative"
           marginLeft="auto"
           borderRadius=".5rem"
           bgcolor="rgba(255,255,255,.1)"
-        >
+        > 
           <SearchIconWrapper>
             <IconButton
               sx={{ m: 0 }}

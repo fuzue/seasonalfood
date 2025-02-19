@@ -9,6 +9,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'build',
+    //assetsInclude: ['**/*.json'],
   },
   plugins: [react()],
 })
