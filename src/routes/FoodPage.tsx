@@ -45,12 +45,15 @@ export default function FoodPage() {
         backgroundColor: "primary.main",
         color: "primary.light",
         boxShadow: `0 2px 4px #888888`,
+        paddingBlock:'1em',
       };
     } else {
       return {
         color: "secondary.light",
         backgroundColor: "primary.light",
-        opacity: ".5"
+        opacity: ".5",
+        paddingBlock:'1em',
+
       };
     }
   };

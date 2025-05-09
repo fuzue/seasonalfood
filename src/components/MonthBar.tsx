@@ -32,9 +32,11 @@ const MonthBar = () => {
     <ShadowBox
       direction="row"
       alignItems="center"
-      justifyContent="space-between"
+      justifyContent="center"
+      gap="18px"
       bgcolor="primary.main"
       color="primary.light"
+      
       boxShadow="0 2px 4px #332323"
     >
       {selectedMonthNum ? (
@@ -55,7 +57,7 @@ const MonthBar = () => {
         <Fragment>
           <ArrowButton to={`/`}>
             <ArrowLeft />
-            <Typography>Return to current month</Typography>
+            <Typography>{t("MonthPage_return_to_current_month")} </Typography>
           </ArrowButton>
         </Fragment>
       )}

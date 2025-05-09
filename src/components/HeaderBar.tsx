@@ -1,6 +1,6 @@
 import type { FoodList, FoodObject } from "../types/food";
 import Fuse from "fuse.js";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Menu, Search } from "@mui/icons-material";
@@ -24,6 +24,7 @@ type Props = {
 export default function HeaderBar(props: Props) {
   const { t } = useTranslation();
   const query = useRef() as React.MutableRefObject<HTMLFormElement>;
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
     if (props.ifSearched === false) {
@@ -63,6 +64,9 @@ export default function HeaderBar(props: Props) {
     searchLanguage["name-" + i18next.language] = searchText;
 
     return fuse.search(searchLanguage).map((i) => i.item);
+  };
+  const togglePopup = () => {
+    setIsPopupOpen(!isPopupOpen);
   };
 
   function leftButton() {
