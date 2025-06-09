@@ -65,9 +65,6 @@ export default function HeaderBar(props: Props) {
 
     return fuse.search(searchLanguage).map((i) => i.item);
   };
-  const togglePopup = () => {
-    setIsPopupOpen(!isPopupOpen);
-  };
 
   function leftButton() {
     return (

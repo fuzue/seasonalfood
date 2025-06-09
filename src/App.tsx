@@ -8,8 +8,6 @@ import FoodOfTheMonth from "./routes/FoodOfTheMonth";
 import FoodPage from "./routes/FoodPage";
 import Layout from "./routes/Layout";
 import { NotFound } from "./routes/NotFound";
-import FirstTimePopup from "./components/FirstTimePopup";
-//import PopupDevTools from "./components/PopUpDevTools";
 
 export default function App() {
   const [ food, setFood ] = useState([] as FoodList)
@@ -18,9 +16,6 @@ export default function App() {
     fetchData(setFood, "ITALIA-fruits-and-veggies.csv")
   },[])
 
-  const handlePopupClose = (): void => {
-    console.log('First-time user has started using the app');
-  };
 
   return food.length > 0 ? (
     <FoodDBProvider initialState={food}>
@@ -43,8 +38,7 @@ export default function App() {
                 element={<FoodOfTheMonth />}
               />
             </Route>
-          </Routes><FirstTimePopup onClose={handlePopupClose} />
-        {/* <PopupDevTools /> */}
+          </Routes>
         </div>
       </BrowserRouter>
     </FoodDBProvider>

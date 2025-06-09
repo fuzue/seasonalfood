@@ -20,7 +20,7 @@ const RenderFoods:FunctionComponent<RenderFoodProps> = (props:RenderFoodProps) =
     );
   });
   return (
-    <Stack direction="row" flexWrap="wrap" justifyContent="space-between" gap={1.5}>
+    <Stack direction="row" flexWrap="wrap" justifyContent="center" gap={'16px'}>
       {foodItems}
     </Stack>
   );
