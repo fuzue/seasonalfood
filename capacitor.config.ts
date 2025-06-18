@@ -4,6 +4,7 @@ const config: CapacitorConfig = {
   appId: "org.fuzue.seasonalfood",
   appName: "Seasonal Food",
   webDir: "build",
+  bundledWebRuntime: false,
   server: {
     androidScheme: "https",
     allowNavigation: ["*"],
