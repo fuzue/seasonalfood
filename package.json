@@ -15,13 +15,14 @@
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
-    "@capacitor/android": "^5.1.1",
-    "@capacitor/core": "^5.1.1",
+    "@capacitor/android": "^7.3.0",
+    "@capacitor/core": "^7.3.0",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.1",
+    "adb": "^0.2.0",
     "fuse.js": "^6.6.2",
     "gh-pages": "^5.0.0",
     "i18next": "^23.2.3",
@@ -32,7 +33,8 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^13.0.1",
     "react-papaparse": "^4.1.0",
-    "react-router-dom": "^6.11.2"
+    "react-router-dom": "^6.11.2",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@capacitor/assets": "^3.0.5",
@@ -46,6 +48,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
     "typescript": "^5.0.2",
-    "vite": "^4.5.9"
+    "vite": "^4.5.14"
   }
 }

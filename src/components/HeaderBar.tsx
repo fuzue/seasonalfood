@@ -1,6 +1,6 @@
 import type { FoodList, FoodObject } from "../types/food";
 import Fuse from "fuse.js";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect /* , useState  */ } from "react";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { Menu, Search } from "@mui/icons-material";
@@ -11,7 +11,7 @@ import {
   IconButton,
   InputBase,
   Box,
-  Typography
+  Typography,
 } from "@mui/material";
 
 type Props = {
@@ -24,7 +24,7 @@ type Props = {
 export default function HeaderBar(props: Props) {
   const { t } = useTranslation();
   const query = useRef() as React.MutableRefObject<HTMLFormElement>;
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  //const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
     if (props.ifSearched === false) {
@@ -105,22 +105,25 @@ export default function HeaderBar(props: Props) {
   }));
 
   return (
-    <AppBar position="static" sx={{ mb: 1, backgroundColor: "secondary.light" }}>
+    <AppBar
+      position="static"
+      sx={{ mb: 1, backgroundColor: "secondary.light" }}
+    >
       <Toolbar>
         {leftButton()}
-        <Typography 
-      variant="subtitle1" 
-      component="div" 
-      sx={{ flexGrow: 0, marginRight: 2 }}
-    >
-      Season Food
-    </Typography>
+        <Typography
+          variant="subtitle1"
+          component="div"
+          sx={{ flexGrow: 0, marginRight: 2 }}
+        >
+          Season Food
+        </Typography>
         <Box
           position="relative"
           marginLeft="auto"
           borderRadius=".5rem"
           bgcolor="rgba(255,255,255,.1)"
-        > 
+        >
           <SearchIconWrapper>
             <IconButton
               sx={{ m: 0 }}

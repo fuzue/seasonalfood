@@ -44,7 +44,6 @@ export default function FoodPage() {
       }
     }
   }
-  console.log(totalMonthsInSeason);
   const image = selectedFood ? selectedFood.image.toLowerCase() : "";
 
   const monthColor = (month: string) => {
