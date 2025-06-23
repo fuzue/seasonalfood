@@ -16,10 +16,12 @@ export default function App() {
     fetchData(setFood, "ITALIA-fruits-and-veggies.csv")
   },[])
 
+
   return food.length > 0 ? (
     <FoodDBProvider initialState={food}>
       <BrowserRouter basename={import.meta.env.VITE_BASE_URL}>
         <div className="App">
+        
           <Routes>
             <Route path="*" element={<NotFound />} />
             <Route path="/" element={<Layout food={food} />}>

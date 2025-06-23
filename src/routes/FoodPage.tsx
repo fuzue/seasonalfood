@@ -27,16 +27,23 @@ export default function FoodPage() {
     }
   });
   const months = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"];
+  let totalMonthsInSeason = 0;
+  for (let month of selectedFood.season)
+    month === true ? totalMonthsInSeason++ : "";
+
   for (let i = 0; i < months.length; i++) {
     if (selectedFood && selectedFood.season[i] === true) {
       seasonMonths.push(months[i]);
       seasonStatus = "FoodPage_notInSeasonText";
       if (seasonMonths.includes(months[currentMonth - 1])) {
-        seasonStatus = "FoodPage_inSeasonText";
+        if (totalMonthsInSeason != 12) {
+          seasonStatus = "FoodPage_inSeasonText";
+        } else {
+          seasonStatus = "FoodPage_inSeasonAllYear";
+        }
       }
     }
   }
-
   const image = selectedFood ? selectedFood.image.toLowerCase() : "";
 
   const monthColor = (month: string) => {
@@ -45,12 +52,14 @@ export default function FoodPage() {
         backgroundColor: "primary.main",
         color: "primary.light",
         boxShadow: `0 2px 4px #888888`,
+        paddingBlock: "1em",
       };
     } else {
       return {
         color: "secondary.light",
         backgroundColor: "primary.light",
-        opacity: ".5"
+        opacity: ".5",
+        paddingBlock: "1em",
       };
     }
   };
@@ -61,10 +70,10 @@ export default function FoodPage() {
     alignItems: "center",
     flexGrow: 1,
     padding: 2,
-    width: '25%',
-    [theme.breakpoints.up('md')]: {
-      fontSize: '1.125rem',
-      fontWeight: '400'
+    width: "25%",
+    [theme.breakpoints.up("md")]: {
+      fontSize: "1.125rem",
+      fontWeight: "400",
     },
   }));
 
@@ -75,13 +84,17 @@ export default function FoodPage() {
     minWidth: 100,
     aspectRatio: 1,
     mx: "0.5em",
-   }));
+  }));
 
   const renderMonths = () => {
     return months.map((month) => {
       let userNumber = Number(month) + 1;
       return (
-        <GridBox key={month} sx={{ ...monthColor(month), m: 1 }} to={`/month/${userNumber}`}>
+        <GridBox
+          key={month}
+          sx={{ ...monthColor(month), m: 1 }}
+          to={`/month/${userNumber}`}
+        >
           <Typography>{t(`month_${month}`)}</Typography>
         </GridBox>
       );
@@ -89,12 +102,7 @@ export default function FoodPage() {
   };
 
   return (
-    <Stack
-      width="100%"
-      height="100%"
-      overflow="auto"
-      my={1.5}
-    >
+    <Stack width="100%" height="100%" overflow="auto" my={1.5}>
       <Stack direction="row" width="100%">
         <ImgBox borderRadius={1}>
           <img
@@ -103,7 +111,14 @@ export default function FoodPage() {
             alt={`photo of ${image}`}
           />
         </ImgBox>
-        <Stack px={2} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+        <Stack
+          px={2}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+        >
           <Typography
             variant="h4"
             sx={{ fontWeight: 700 }}
@@ -115,7 +130,12 @@ export default function FoodPage() {
           </Typography>
           <Typography
             fontWeight={700}
-            color={seasonStatus === "FoodPage_inSeasonText" ? "secondary.main" : "primary.main"}>
+            color={
+              seasonStatus === "FoodPage_inSeasonText"
+                ? "secondary.main"
+                : "primary.main"
+            }
+          >
             {t(seasonStatus)}
           </Typography>
         </Stack>
