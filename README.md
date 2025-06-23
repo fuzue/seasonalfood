@@ -6,20 +6,19 @@ The concept behind this project was to create a simple and scalable solution, ma
 
 The project is written in React/Typescript, using [MUI](https://mui.com/) library for the UI. The Android app is built using [Capacitor](https://capacitorjs.com/).
 
-## First Release (August 2023)
+## First Release (Summer 2025)
+This first release has dat for **Italy only** 🇮🇹. Also in this initial release we have a web version and an Android app, available in English,Italian and Brazilian Portuguese. 
 
-This first release has dat for **Italy only** 🇮🇹. Also in this initial release we have a web version and an Android app, available in English and Italian.
+## Roadmap - upcoming features
 
-## Roadmap
+* 🌎 Add more countries: we will make it possible to select which country do you want to see the fruits and vegetables in season.
+* 📌 Add more local data: we are looking for more local datasets, to make it possible to search for even more local fruits and vegetables in season. Think about searching for seasonal food in South France or in a province, like Liguria in Italy.
+* 📊 Create new ways of visualizing the food in season information, with full year diagrams.
+* 🍇 🍉 🍑 🥝 🍒 Make it possible to select a group of fruits and vegetables and see all of them in a calendar.
+* 🔍 Add synonyms or variant names. Some fruits and vegetables have more than one name, depending of the country's region.
+* 🛢Create a public dataset with all the information that we are gathering.
 
-- 🌎 Add more countries: we will make it possible to select which country do you want to see the fruits and vegetables in season.
-- 📌 Add more local data: we are looking for more local datasets, to make it possible to search for even more local fruits and vegetables in season. Think about searching for seasonal food in South France or in a province, like Liguria in Italy.
-- 📊 Create new ways of visualizing the food in season information, with full year diagrams.
-- 🍇 🍉 🍑 🥝 🍒 Make it possible to select a group of fruits and vegetables and see all of them in a calendar.
-- 🔍 Add synonyms or variant names. Some fruits and vegetables have more than one name, depending of the country's region.
-- 🛢Create a public dataset with all the information that we are gathering.
-- 🍎 Release IOS version.
-- Write it in [Svelte](https://svelte.dev/)!
+
 
 ### Data sources
 
