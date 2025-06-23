@@ -1,10 +1,11 @@
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 import { Stack, Typography, alpha, styled } from "@mui/material";
-import { t } from "i18next";
 import { Fragment } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next"
 
 const MonthBar = () => {
+  const { t } = useTranslation();
   const { selectedMonthNum } = useParams();
   const monthNum = Number(selectedMonthNum) - 1;
 
@@ -32,7 +33,8 @@ const MonthBar = () => {
     <ShadowBox
       direction="row"
       alignItems="center"
-      justifyContent="space-between"
+      justifyContent="center"
+      gap="18px"
       bgcolor="primary.main"
       color="primary.light"
       boxShadow="0 2px 4px #332323"
@@ -55,7 +57,7 @@ const MonthBar = () => {
         <Fragment>
           <ArrowButton to={`/`}>
             <ArrowLeft />
-            <Typography>Return to current month</Typography>
+            <Typography>{t("MonthPage_return_to_current_month")} </Typography>
           </ArrowButton>
         </Fragment>
       )}

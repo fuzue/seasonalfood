@@ -23,7 +23,7 @@ export default function AboutDialog() {
           <Typography sx={{fontWeight: 800, mt: 3}}>
             {t("AboutDialog_aboutus")} <Link underline="hover" href="https://fuzue.tech" target="_blank">fuzue.tech</Link> 
             <br /> 
-            {t("AboutDialog_aboutapp")} <Link underline="hover" href="https://seasonalfood.fuzue.tech/" target="_blank" > here</Link> 
+            {t("AboutDialog_aboutapp")} <Link underline="hover" href="https://seasonalfood.fuzue.tech/" target="_blank" > {t("AboutDialog_Here")}</Link> 
           </Typography>
         </DialogContentText>
       </DialogContent>

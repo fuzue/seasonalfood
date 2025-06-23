@@ -15,6 +15,7 @@ import {
   } from "@mui/material";
 import SideBarDialog from "../components/SideBarDialog";
 import MonthBar from "../components/MonthBar";
+import FirstTimePopup from "../components/FirstTimePopup";
 
 //BASIC MUI COLORS AND BREAKPOINTS
 const theme = createTheme({
@@ -22,8 +23,6 @@ const theme = createTheme({
     text: {
       primary: "#674747", //dark gray
       secondary: "rgba(0, 0, 0, 0.28)", //light gray
-
-      
     },
     primary: { // green
       main: "#6fa128", //light green,
@@ -40,7 +39,6 @@ const theme = createTheme({
 });
 
 function Layout({ food }: { food: FoodList }) {
-
   //search bar code
   const [currentSearch, setCurrentSearch] = useState('');
   const [ifSearched, setIfSearched] = useState(false);
@@ -74,6 +72,7 @@ function Layout({ food }: { food: FoodList }) {
       <Drawer open={state} onClick={toggleDrawer}>
         <SideBarList handleClickOpen={handleClickOpen} />
       </Drawer>
+      <FirstTimePopup></FirstTimePopup>
       <Stack bgcolor="primary.light" height="100%" maxWidth={1024} mx="auto" p={1}>
         <HeaderBar
           onSearch={onSearch}
@@ -98,6 +97,7 @@ function Layout({ food }: { food: FoodList }) {
         <Box flexGrow={1} overflow="hidden">
           <Outlet />
         </Box>
+        
       </Stack>
     </ThemeProvider>
   );

@@ -16,7 +16,7 @@ export default function ContactDialog() {
       <DialogContent>
         <DialogContentText id="contact-dialog-description"  color="dark-gray" >
           {t("ContactDialog_text1")}
-            <Link underline="hover" color="inherit" href="https://seasonalfood.fuzue.tech/" target="_blank"> {t("ContactDialog_text2")}</Link> 
+            <Link underline="hover" color="inherit" href="https://seasonalfood.fuzue.tech/" target="_blank">{/* {t("ContactDialog_text2")} */}</Link> 
             &nbsp;{t( "ContactDialog_text3")} <Link underline="hover" sx={{fontWeight: 800}} href="https://github.com/fuzue/seasonalfood"> {t("ContactDialog_text4")}</Link>
           <Box sx={{display: 'flex', justifyContent: 'start', mt:2, }}>
             <AlternateEmailIcon sx={{mr:1}} />
