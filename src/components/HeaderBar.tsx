@@ -116,7 +116,7 @@ export default function HeaderBar(props: Props) {
           component="div"
           sx={{ flexGrow: 0, marginRight: 2 }}
         >
-          Season Food
+          Seasonal Food
         </Typography>
         <Box
           position="relative"

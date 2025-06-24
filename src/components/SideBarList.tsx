@@ -6,7 +6,7 @@ import {
   ListItem,
   Typography,
   Stack,
-  Divider
+  Divider,
 } from "@mui/material";
 
 export default function SideBarList(props: any) {
@@ -25,7 +25,7 @@ export default function SideBarList(props: any) {
     >
       <ListItem sx={{ my: 1.5 }}>
         <Typography variant="h6" display="block" gutterBottom sx={{ m: 0 }}>
-          SEASON FOOD 🇮🇹
+          SEASONAL FOOD 🇮🇹
         </Typography>
       </ListItem>
       <Divider />
