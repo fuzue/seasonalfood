@@ -10,18 +10,16 @@ import Layout from "./routes/Layout";
 import { NotFound } from "./routes/NotFound";
 
 export default function App() {
-  const [ food, setFood ] = useState([] as FoodList)
+  const [food, setFood] = useState([] as FoodList);
 
   useEffect(() => {
-    fetchData(setFood, "ITALIA-fruits-and-veggies.csv")
-  },[])
-
+    fetchData(setFood, "ITALIA-fruits-and-veggies.csv");
+  }, []);
 
   return food.length > 0 ? (
     <FoodDBProvider initialState={food}>
       <BrowserRouter basename={import.meta.env.VITE_BASE_URL}>
         <div className="App">
-        
           <Routes>
             <Route path="*" element={<NotFound />} />
             <Route path="/" element={<Layout food={food} />}>
@@ -29,10 +27,7 @@ export default function App() {
                 index
                 element={<Navigate to={`/month/${currentMonth}`} replace />}
               />
-              <Route
-                path="/:id"
-                element={<FoodPage key="foodpage"/>}
-              />
+              <Route path="/:id" element={<FoodPage key="foodpage" />} />
               <Route
                 path="/month/:selectedMonthNum"
                 element={<FoodOfTheMonth />}
