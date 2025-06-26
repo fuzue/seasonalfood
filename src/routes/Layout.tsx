@@ -6,13 +6,7 @@ import SearchResult from "../components/SearchResult";
 import SideBarList from "../components/SideBarList";
 
 /* MUI IMPORTS */
-import {
-  createTheme,
-  Box,
-  Drawer,
-  ThemeProvider,
-  Stack
-  } from "@mui/material";
+import { createTheme, Box, Drawer, ThemeProvider, Stack } from "@mui/material";
 import SideBarDialog from "../components/SideBarDialog";
 import MonthBar from "../components/MonthBar";
 import FirstTimePopup from "../components/FirstTimePopup";
@@ -24,30 +18,30 @@ const theme = createTheme({
       primary: "#674747", //dark gray
       secondary: "rgba(0, 0, 0, 0.28)", //light gray
     },
-    primary: { // green
+    primary: {
+      // green
       main: "#6fa128", //light green,
       dark: "#f9f3e3",
-      light: "#f9f3e3" //light cream - bg-color
+      light: "#f9f3e3", //light cream - bg-color
     },
-    secondary: { // purple/red 
-      main: "#782a33", 
-      light: "#ce3045", 
-      
+    secondary: {
+      // purple/red
+      main: "#782a33",
+      light: "#ce3045",
     },
-
   },
 });
 
 function Layout({ food }: { food: FoodList }) {
   //search bar code
-  const [currentSearch, setCurrentSearch] = useState('');
+  const [currentSearch, setCurrentSearch] = useState("");
   const [ifSearched, setIfSearched] = useState(false);
   const [searchResults, setSearchResults] = useState([] as FoodList);
   const closeModal = () => setIfSearched(false);
 
   const onSearch = (query: string, food: FoodList) => {
     if (query != "") {
-      setCurrentSearch(query)
+      setCurrentSearch(query);
       setIfSearched(true);
       setSearchResults(food);
     }
@@ -73,13 +67,19 @@ function Layout({ food }: { food: FoodList }) {
         <SideBarList handleClickOpen={handleClickOpen} />
       </Drawer>
       <FirstTimePopup></FirstTimePopup>
-      <Stack bgcolor="primary.light" height="100%" maxWidth={1024} mx="auto" p={1}>
-        <HeaderBar
-          onSearch={onSearch}
-          toggleDrawer={toggleDrawer}
-          food={food}
-          ifSearched={ifSearched}
-        />
+      <HeaderBar
+        onSearch={onSearch}
+        toggleDrawer={toggleDrawer}
+        food={food}
+        ifSearched={ifSearched}
+      />
+      <Stack
+        bgcolor="primary.light"
+        height="100%"
+        maxWidth={1024}
+        mx="auto"
+        p={1}
+      >
         <MonthBar />
         {ifSearched ? (
           <SearchResult
@@ -97,7 +97,6 @@ function Layout({ food }: { food: FoodList }) {
         <Box flexGrow={1} overflow="hidden">
           <Outlet />
         </Box>
-        
       </Stack>
     </ThemeProvider>
   );
