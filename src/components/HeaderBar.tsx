@@ -33,12 +33,14 @@ export default function HeaderBar(props: Props) {
   });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    console.log(props.food);
     const foundFoods = searchFilterFood(props.food);
     props.onSearch(query.current.value, foundFoods);
     event.preventDefault();
   };
 
   const searchFilterFood = (food: FoodList) => {
+    console.log("BUSCA", food);
     if (query.current.value === "") {
       return food;
     }
@@ -49,11 +51,22 @@ export default function HeaderBar(props: Props) {
       keys: [
         {
           name: "name-en",
-          getFn: (food: FoodObject) => food.description[0].name,
+          getFn: (f: FoodObject) => {
+            console.log(f);
+            return f.description[0].name;
+          },
         },
         {
           name: "name-it",
-          getFn: (food: FoodObject) => food.description[1].name,
+          getFn: (f: FoodObject) => {
+            return f.description[1].name;
+          },
+        },
+        {
+          name: "name-pt",
+          getFn: (f: FoodObject) => {
+            return f.description[2].name;
+          },
         },
       ],
     };

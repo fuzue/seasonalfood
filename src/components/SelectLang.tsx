@@ -1,4 +1,3 @@
-
 import {
   FormControl,
   MenuItem,
@@ -11,16 +10,17 @@ import { useTranslation } from "react-i18next";
 export default function SelectLang() {
   const { t, i18n } = useTranslation();
 
-
   const langs = {
     en: { nativeName: "English" },
     it: { nativeName: "Italiano" },
-    pt: {nativeName: "Português(BR)"}
+    pt: { nativeName: "Português(BR)" },
   } as { [key: string]: { nativeName: string } };
 
   return (
     <FormControl sx={{ minWidth: "100%" }} size="small">
-      <InputLabel id="demo-select-small-label">{t("SelectLang_Text")}</InputLabel>
+      <InputLabel id="demo-select-small-label">
+        {t("SelectLang_Text")}
+      </InputLabel>
       <Select
         labelId="demo-select-small-label"
         id="demo-select-small"
