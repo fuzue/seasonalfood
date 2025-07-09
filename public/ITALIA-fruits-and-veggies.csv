@@ -1,8 +1,8 @@
 category,nameEng,nameIta,image,id,month_0,month_1,month_2,month_3,month_4,month_5,month_6,month_7,month_8,month_9,month_10,month_11
 Fruits,Apricot,Albicocche,apricot,0,,,,,,x,x,,,,,
-Fruits,Cherries,Cillegie,cherry,1,,,,,x,x,x,,,,,
+Fruits,Cherries,Ciliegie,cherry,1,,,,,x,x,x,,,,,
 Fruits,Clementine,Mandarino,clementine,2,x,x,x,,,,,,,x,x,x
-Fruits,Figs,Ficchi,Figs,3,,,,,,,,,,x,x,
+Fruits,Figs,Fichi,Figs,3,,,,,,,,,,x,x,
 Fruits,Grapes,Uva,Grapes,4,,,,,,,x,x,x,x,x,
 Fruits,Melons,Meloni,Melons,5,,,,,x,x,x,x,x,x,,
 Fruits,Oranges,Arance,Oranges,6,x,x,x,,,,,,,x,x,x
@@ -13,7 +13,7 @@ Fruits,Strawberries,Fragole,Strawberries,10,,,,x,x,x,x,x,x,x,,
 Fruits,Watermelons,Anguri,Watermelons,11,,,,,,x,x,x,,,,
 Veggies,Leeks,Porri,Leeks,12,x,x,,,,,,,,x,x,x
 Veggies,Artichokes,Carciofi,artichokes,13,x,x,x,x,x,,,,,,,
-Veggies,Cauliflowers,Calvofiori,Cauliflowers,14,x,x,x,,,,,x,x,x,x,x
+Veggies,Cauliflowers,Cavolfiori,Cauliflowers,14,x,x,x,,,,,x,x,x,x,x
 Fruits,Pears,Pere,Pears,15,x,x,x,x,x,x,x,x,x,x,,
 Veggies,Cucumbers,Cetrioli,Cucumbers,16,x,x,,,,,,x,x,x,x,x
 Veggies,Pumpkin,Zucche,Pumpkins,18,x,x,x,,,,,,,x,x,x
@@ -28,7 +28,7 @@ Veggies,Green beans,Fagiolini,GreenBeans,26,,,,x,x,x,x,x,x,,,
 Veggies,Zucchini,Zucchini,Zucchini,27,,,,x,x,x,x,x,x,x,,
 Fruits,Raspberries,Lamponi,Raspberries,28,,,,,,x,x,x,x,x,,
 Fruits,Blueberries,Mirtili,blueberries,29,,,,,,x,x,x,x,,,
-Veggies,Peppers,Pepperoni,Peppers,30,,,,,x,x,x,x,x,,,
+Veggies,Peppers,Peperoni,Peppers,30,,,,,x,x,x,x,x,,,
 Veggies,Tomatoes,Pomodori,Tomatoes,31,,,,,x,x,x,x,x,,,
 Veggies,Onions,Cipolle,Onions,32,,,,,,,x,x,x,x,,
 Fruits,Lemons,Limoni,Lemons,33,x,x,x,x,x,x,x,x,x,x,x,x
