@@ -21,7 +21,7 @@ export default function SideBarList(props: any) {
         color: "#3e3e3e",
         fontWeight: "bold",
       }}
-      className="margin-top-env"
+      className="margin-env-safe"
       role="presentation"
     >
       <ListItem sx={{ my: 1.5 }}>

@@ -25,7 +25,7 @@ const RenderFoods: FunctionComponent<RenderFoodProps> = (
       flexWrap="wrap"
       justifyContent="center"
       gap={"16px"}
-      marginBottom="8em"
+      className="margin-bottom-env"
     >
       {foodItems}
     </Stack>
