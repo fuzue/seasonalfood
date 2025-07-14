@@ -23,11 +23,7 @@ export default function SideBarDialog(props: {
   };
 
   return (
-    <Dialog
-      open={props.open}
-      onClose={props.handleClose}
-      className="app-header"
-    >
+    <Dialog open={props.open} onClose={props.handleClose}>
       {renderDialog(props.dialogType)}
       <DialogActions>
         <Button variant="outlined" onClick={props.handleClose} autoFocus>
