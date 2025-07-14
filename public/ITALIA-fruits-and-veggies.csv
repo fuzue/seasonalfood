@@ -1,8 +1,8 @@
 category,nameEng,nameIta,namePorBR,image,id,month_0,month_1,month_2,month_3,month_4,month_5,month_6,month_7,month_8,month_9,month_10,month_11
 Fruits,Apricot,Albicocche,Damasco,apricot,0,,,,,,x,x,,,,,
-Fruits,Cherries,Cillegie,Cereja,cherry,1,,,,,x,x,x,,,,,
+Fruits,Cherries,Ciliegie,Cereja,cherry,1,,,,,x,x,x,,,,,
 Fruits,Clementine,Mandarino,Tangerina,clementine,2,x,x,x,,,,,,,x,x,x
-Fruits,Figs,Ficchi,Figo,Figs,3,,,,,,,,,,x,x,
+Fruits,Figs,Fichi,Figo,Figs,3,,,,,,,,,,x,x,
 Fruits,Grapes,Uva,Uva,Grapes,4,,,,,,,x,x,x,x,x,
 Fruits,Melons,Meloni,Melão,Melons,5,,,,,x,x,x,x,x,x,,
 Fruits,Oranges,Arance,Laranja,Oranges,6,x,x,x,,,,,,,x,x,x
@@ -10,10 +10,10 @@ Fruits,Peach,Pesche,Pêssego,Peach,7,,,,,,x,x,x,x,,,
 Fruits,Persimmon,Cachi,Caqui,Persimmon,8,x,x,x,,,,,,,x,x,x
 Fruits,Plum,Susine,Ameixa,Plum,9,,,,,,x,x,x,x,,,
 Fruits,Strawberries,Fragole,Morango,Strawberries,10,,,,x,x,x,x,x,x,x,,
-Fruits,Watermelons,Anguri,Melancia,Watermelons,11,,,,,,x,x,x,,,,
+Fruits,Watermelons,Anguria,Melancia,Watermelons,11,,,,,,x,x,x,,,,
 Veggies,Leeks,Porri,Alho-poró,Leeks,12,x,x,,,,,,,,x,x,x
 Veggies,Artichokes,Carciofi,Alcachofra,artichokes,13,x,x,x,x,x,,,,,,,
-Veggies,Cauliflowers,Calvofiori,Couve-flor,Cauliflowers,14,x,x,x,,,,,x,x,x,x,x
+Veggies,Cauliflowers,Cavolfiori,Couve-flor,Cauliflowers,14,x,x,x,,,,,x,x,x,x,x
 Fruits,Pears,Pere,Pera,Pears,15,x,x,x,x,x,x,x,x,x,x,,
 Veggies,Cucumbers,Cetrioli,Pepino,Cucumbers,16,x,x,,,,,,x,x,x,x,x
 Veggies,Pumpkin,Zucche,Abóbora,Pumpkins,18,x,x,x,,,,,,,x,x,x
@@ -28,7 +28,7 @@ Veggies,Green beans,Fagiolini,Vagem,GreenBeans,26,,,,x,x,x,x,x,x,,,
 Veggies,Zucchini,Zucchini,Abobrinha,Zucchini,27,,,,x,x,x,x,x,x,x,,
 Fruits,Raspberries,Lamponi,Framboesa,Raspberries,28,,,,,,x,x,x,x,x,,
 Fruits,Blueberries,Mirtili,Mirtilo,blueberries,29,,,,,,x,x,x,x,,,
-Veggies,Peppers,Pepperoni,Pimentão,Peppers,30,,,,,x,x,x,x,x,,,
+Veggies,Peppers,Peperoni,Pimentão,Peppers,30,,,,,x,x,x,x,x,,,
 Veggies,Tomatoes,Pomodori,Tomate,Tomatoes,31,,,,,x,x,x,x,x,,,
 Veggies,Onions,Cipolle,Cebola,Onions,32,,,,,,,x,x,x,x,,
 Fruits,Lemons,Limoni,Limão,Lemons,33,x,x,x,x,x,x,x,x,x,x,x,x

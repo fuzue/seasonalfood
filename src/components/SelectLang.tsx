@@ -17,13 +17,11 @@ export default function SelectLang() {
   } as { [key: string]: { nativeName: string } };
 
   return (
-    <FormControl sx={{ minWidth: "100%" }} size="small">
-      <InputLabel id="demo-select-small-label">
-        {t("SelectLang_Text")}
-      </InputLabel>
+    <FormControl sx={{ width: "100%" }} size="small">
+      <InputLabel id="select-lang-label">{t("SelectLang_Text")}</InputLabel>
       <Select
-        labelId="demo-select-small-label"
-        id="demo-select-small"
+        labelId="select-lang-label"
+        id="select-lang"
         value={i18n.resolvedLanguage}
         label="Language"
         onChange={(event: SelectChangeEvent) =>
