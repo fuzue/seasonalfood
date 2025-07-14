@@ -217,6 +217,11 @@
     tslib "2.6.2"
     yargs "17.7.2"
 
+"@capacitor/browser@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.npmjs.org/@capacitor/browser/-/browser-7.0.1.tgz"
+  integrity sha512-N6KEVLw2enTnourQzYJLvAkSds2Ed21zqsvHnSImrVDenzX8fUj032kMt4EdewmxfxiEwRa911BT1VOPBi0fEA==
+
 "@capacitor/cli@^5.1.1", "@capacitor/cli@^5.3.0":
   version "5.7.8"
   resolved "https://registry.npmjs.org/@capacitor/cli/-/cli-5.7.8.tgz"
@@ -240,7 +245,7 @@
     tslib "^2.4.0"
     xml2js "^0.5.0"
 
-"@capacitor/core@^7.3.0":
+"@capacitor/core@^7.3.0", "@capacitor/core@>=7.0.0":
   version "7.3.0"
   resolved "https://registry.npmjs.org/@capacitor/core/-/core-7.3.0.tgz"
   integrity sha512-t/DdTyBchQ2eAZuCmAARlqQsrEm0WyeNwh5zeRuv+cR6gnAsw+86/EWvJ/em5dTnZyaqEy8vlmOMdWarrUbnuQ==
