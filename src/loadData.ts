@@ -1,18 +1,19 @@
 import { usePapaParse } from "react-papaparse";
 import { FoodDescription, FoodList, FoodObject } from "./types/food";
 
-export default async function fetchData(setFunction: React.Dispatch<React.SetStateAction<FoodList>>, url: string) {
+export default async function fetchData(
+  setFunction: React.Dispatch<React.SetStateAction<FoodList>>,
+  url: string
+) {
   const { readRemoteFile } = usePapaParse();
 
-  return readRemoteFile(
-    import.meta.env.BASE_URL + url ,{
-      download: true,
-      header: true,
-      complete: (result: any) => {
-        setFunction(normalizeData(result.data));
-      },
-    }
-  );
+  return readRemoteFile(import.meta.env.BASE_URL + url, {
+    download: true,
+    header: true,
+    complete: (result: any) => {
+      setFunction(normalizeData(result.data));
+    },
+  });
 }
 
 function normalizeData(data: { [key: string]: string }[]) {
@@ -45,12 +46,12 @@ function getDescription(line: { [key: string]: string }) {
       });
   });
   return langsInfo;
-};
+}
 
-function getMonths (line: { [key: string]: string }) {
+function getMonths(line: { [key: string]: string }) {
   const monthsInfo = [] as boolean[];
   Object.keys(line).forEach((key) => {
     if (key.includes("month_")) monthsInfo.push(line[key] === "x");
   });
   return monthsInfo;
-};
+}
